@@ -29,8 +29,8 @@ function App() {
               <label htmlFor="floatingPassword">Password</label>
             </div>
             <div className="row">
-              <div className="col dflex">
-                <div className="form-check justify-content-left">
+              <div className="col d-flex">
+                <div className="form-check text-left">
                   <input
                     className="form-check-input"
                     type="checkbox"
@@ -45,11 +45,17 @@ function App() {
                   </label>
                 </div>
               </div>
-              <div className="col justify-content-right">
+              <div className="col">
                 <a href="#">Forget password</a>
               </div>
             </div>
+            <button type="button" className="btn btn-dark btn-lg">
+              Login
+            </button>
           </form>
+          <footer className="text-center">
+            Copyright 2022 ©, Horizon code academy
+          </footer>
         </div>
       </div>
     </div>

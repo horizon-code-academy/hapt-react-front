@@ -2,3 +2,9 @@
 .login {
   height: 100vh;
 }
+
+footer {
+  position: fixed;
+  bottom: 20px;
+  width: 50%;
+}
