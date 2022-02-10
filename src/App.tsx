@@ -1,9 +1,13 @@
 import React from "react";
 import "./App.css";
-import Login from "./components/Login";
+import Forgetpassword from "./components/forget";
+import forgetps from "./components/forget";
+
+
+
 
 function App() {
-  return <Login />;
+  return < Forgetpassword />;
 }
 
 export default App;
