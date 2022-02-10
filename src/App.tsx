@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.css";
-import Login from "./components/Login";
+import ForgetPassword from "./components/forgetpass";
 
 function App() {
-  return <Login />;
+  return <ForgetPassword />;
 }
 
 export default App;
