@@ -3,10 +3,10 @@
   height: 100vh;
 }
 .screen {
-  background: url("../public/bg.jpg") no-repeat;
+  background: linear-gradient(rgba(231, 102, 102, 0.308),rgba(251, 255, 8, 0.486), rgba(13, 10, 187, 0.342)), url("../public/bg.jpg") no-repeat;
   background-position: center;
   background-size: cover;
-}
+};
 
 footer {
   position: fixed;
