@@ -1,7 +1,14 @@
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 
 function Login() {
   const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
+  const changeEmail = (e: ChangeEvent<HTMLInputElement>) =>
+    setEmail(e.target.value);
+
+  const changePassword = (e: ChangeEvent<HTMLInputElement>) =>
+    setPassword(e.target.value);
 
   return (
     <div className="container-fluid">
@@ -17,6 +24,8 @@ function Login() {
                 className="form-control"
                 id="floatingInput"
                 placeholder="name@example.com"
+                value={email}
+                onChange={changeEmail}
               />
               <label htmlFor="floatingInput">Email address</label>
             </div>
@@ -26,6 +35,8 @@ function Login() {
                 className="form-control"
                 id="floatingPassword"
                 placeholder="Password"
+                value={password}
+                onChange={changePassword}
               />
               <label htmlFor="floatingPassword">Password</label>
             </div>

@@ -1,7 +1,7 @@
 import { useState, ChangeEvent } from "react";
 
 function ForgetPassword() {
-  const [email, setEmail] = useState<string>("nathir");
+  const [email, setEmail] = useState<string>("");
 
   const changeEmail = (e: ChangeEvent<HTMLInputElement>) =>
     setEmail(e.target.value);
