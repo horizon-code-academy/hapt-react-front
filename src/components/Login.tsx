@@ -1,4 +1,5 @@
 import { useState, ChangeEvent } from "react";
+import { FormattedMessage } from "react-intl";
 import {
   Button,
   Col,
@@ -29,8 +30,8 @@ function Login() {
           md={6}
           className="login text-center p-5 d-flex flex-column justify-content-center"
         >
-          <h1>Login</h1>
-          <p>Please login to your account.</p>
+          <FormattedMessage tagName="h1" id="login.title" />
+          <FormattedMessage tagName="p" id="login.subtitle" />
           <Form>
             <FormGroup floating className="mb-3">
               <Input
