@@ -1,6 +1,8 @@
-import React from "react";
+import { useState } from "react";
 
 function Login() {
+  const [email, setEmail] = useState<string>("");
+
   return (
     <div className="container-fluid">
       <div className="row">
