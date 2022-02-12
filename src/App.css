@@ -3,7 +3,8 @@
   height: 100vh;
 }
 .screen {
-  background: url("../public/bg.jpg") no-repeat;
+  background: linear-gradient(to right, #c3376385, #1d2571aa),
+    url("../public/bg.jpg") no-repeat;
   background-position: center;
   background-size: cover;
 }
