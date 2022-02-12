@@ -1,4 +1,14 @@
 import { useState, ChangeEvent } from "react";
+import {
+  Button,
+  Col,
+  Container,
+  Form,
+  FormGroup,
+  Input,
+  Label,
+  Row,
+} from "reactstrap";
 
 function Login() {
   const [email, setEmail] = useState<string>("");
@@ -11,15 +21,19 @@ function Login() {
     setPassword(e.target.value);
 
   return (
-    <div className="container-fluid">
-      <div className="row">
-        <div className="col-md-6 col-12 screen bg-dark "></div>
-        <div className="col-md-6 col-12 login text-center p-5 d-flex flex-column justify-content-center">
+    <Container fluid>
+      <Row>
+        <Col xs={12} md={6} className="screen bg-dark " />
+        <Col
+          xs={12}
+          md={6}
+          className="login text-center p-5 d-flex flex-column justify-content-center"
+        >
           <h1>Login</h1>
           <p>Please login to your account.</p>
-          <form className="form">
-            <div className="form-floating mb-3">
-              <input
+          <Form>
+            <FormGroup floating className="mb-3">
+              <Input
                 type="email"
                 className="form-control"
                 id="floatingInput"
@@ -27,50 +41,49 @@ function Login() {
                 value={email}
                 onChange={changeEmail}
               />
-              <label htmlFor="floatingInput">Email address</label>
-            </div>
-            <div className="form-floating">
-              <input
+              <Label htmlFor="floatingInput">Email address</Label>
+            </FormGroup>
+            <FormGroup floating>
+              <Input
                 type="password"
-                className="form-control"
                 id="floatingPassword"
                 placeholder="Password"
                 value={password}
                 onChange={changePassword}
               />
-              <label htmlFor="floatingPassword">Password</label>
-            </div>
-            <div className="row">
-              <div className="col d-flex">
-                <div className="form-check text-left">
+              <Label htmlFor="floatingPassword">Password</Label>
+            </FormGroup>
+            <Row>
+              <Col className="d-flex">
+                <FormGroup check inline className="text-left">
                   <input
                     className="form-check-input"
                     type="checkbox"
                     value=""
                     id="flexCheckDefault"
                   />
-                  <label
+                  <Label
                     className="form-check-label"
                     htmlFor="flexCheckDefault"
                   >
                     Remember me
-                  </label>
-                </div>
-              </div>
-              <div className="col">
+                  </Label>
+                </FormGroup>
+              </Col>
+              <Col>
                 <a href="#">Forget password</a>
-              </div>
-            </div>
-            <button type="button" className="btn btn-dark btn-lg">
+              </Col>
+            </Row>
+            <Button type="button" color="dark" size="lg">
               Login
-            </button>
-          </form>
+            </Button>
+          </Form>
           <footer className="text-center">
             Copyright 2022 ©, Horizon code academy
           </footer>
-        </div>
-      </div>
-    </div>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
