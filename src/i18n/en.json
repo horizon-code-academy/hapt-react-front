@@ -1,4 +1,13 @@
 {
   "login.title": "Login",
-  "login.subtitle": "Please login to your account."
+  "login.subtitle": "Please login to your account.",
+  "login.text": "Remember Me",
+  "login.forget": "Forget password",
+  "login.pass": "Password",
+  "login.email": "Your Email",
+  "login.btn": "Login",
+  "login.copy": "Copyright 2022 ©, Horizon code academy",
+  "forget.title": "Forget your Password",
+  "forget.subtitle": "Find your account",
+  "forget.btn": "send"
 }
