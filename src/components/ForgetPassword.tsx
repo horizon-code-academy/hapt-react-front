@@ -1,4 +1,5 @@
 import { useState, ChangeEvent } from "react";
+import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from "reactstrap";
 
 function ForgetPassword() {
   const [email, setEmail] = useState<string>("");
@@ -7,13 +8,16 @@ function ForgetPassword() {
     setEmail(e.target.value);
 
   return (
-    <div className="container-fluid">
-      <div className="row">
-        <div className="col-md-6 col-12 login text-center p-5 d-flex flex-column justify-content-center">
+    <Container fluid>
+      <Row>
+        <Col
+          xs={12}
+          md={6}
+          className="login text-center p-5 d-flex flex-column justify-content-center">
           <h1>Forget password</h1>
-          <form className="form">
-            <div className="form-floating mb-3">
-              <input
+          <Form>
+            <FormGroup floating className="mb-3">
+              <Input
                 type="email"
                 className="form-control"
                 id="floatingInput"
@@ -21,19 +25,19 @@ function ForgetPassword() {
                 value={email}
                 onChange={changeEmail}
               />
-              <label htmlFor="floatingInput">Email address</label>
-            </div>
-            <button type="button" className="btn btn-dark btn-lg">
+              <Label htmlFor="floatingPassword">Email address</Label>
+            </FormGroup>
+            <Button type="button" color="dark" size="lg">
               Send
-            </button>
-          </form>
+            </Button>
+          </Form>
           <footer className="text-center">
             Copyright 2022 ©, Horizon code academy
           </footer>
-        </div>
-        <div className="col-md-6 col-12 screen bg-dark "></div>
-      </div>
-    </div>
+        </Col>
+        <Col xs={12} md={6} className="screen bg-dark "></Col>
+      </Row>
+    </Container>
   );
 }
 
