@@ -9,6 +9,8 @@
   "login.copy": "حقوق النشر 2022 ©, Horizon code academy",
   "forget.title": "نسيت كلمة المرور",
   "forget.subtitle": "جد حسابك",
-  "forget.btn": "إرسال"
-
+  "forget.btn": "إرسال",
+  "role.trainer": "مدرب",
+  "role.student": "طالب",
+  "role.admin": "مشرف"
 }

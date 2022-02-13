@@ -1,5 +1,6 @@
 import { FormattedMessage } from "react-intl";
 import {
+  Badge,
   Collapse,
   Container,
   DropdownItem,
@@ -7,7 +8,6 @@ import {
   DropdownToggle,
   Nav,
   Navbar,
-  NavbarBrand,
   NavbarToggler,
   UncontrolledDropdown,
 } from "reactstrap";
@@ -16,6 +16,9 @@ import Avatar from "./parts/Avatar";
 import SideBar from "./parts/SideBar";
 
 const user = {
+  firstName: "Malek",
+  lastName: "Boubakri",
+  roles: ["admin", "trainer"],
   avatar: "https://avatars.githubusercontent.com/u/22925467?s=40&v=4",
 } as User;
 
@@ -23,7 +26,6 @@ function Dashboard() {
   return (
     <>
       <Navbar color="danger" expand="md" light>
-        <NavbarBrand href="/">HAPT</NavbarBrand>
         <NavbarToggler onClick={function noRefCheck() {}} />
         <Collapse navbar>
           <Nav className="me-auto" navbar></Nav>
@@ -32,7 +34,16 @@ function Dashboard() {
               <DropdownToggle caret nav>
                 <Avatar user={user} />
               </DropdownToggle>
-              <DropdownMenu right>
+              <DropdownMenu style={{ right: 0 }}>
+                <DropdownItem disabled>
+                  {user.firstName} {user.lastName}
+                  <br />
+                  {user.roles.map((e) => (
+                    <Badge style={{ marginRight: 5 }}>
+                      <FormattedMessage id={"role." + e} />
+                    </Badge>
+                  ))}
+                </DropdownItem>
                 <DropdownItem>
                   <FormattedMessage id="profil" />
                 </DropdownItem>

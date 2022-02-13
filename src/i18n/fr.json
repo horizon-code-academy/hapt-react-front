@@ -9,7 +9,8 @@
   "login.copy": "Copyright 2022 ©, Horizon code academy",
   "forget.title": "Mot de passe oublié",
   "forget.subtitle": "Trouvez votre compte",
-  "forget.btn": "Envoyer"
-
-
+  "forget.btn": "Envoyer",
+  "role.trainer": "Formateur",
+  "role.student": "Etudiant",
+  "role.admin": "Administrateur"
 }
