@@ -10,17 +10,57 @@ import {
   faCertificate,
 } from "@fortawesome/free-solid-svg-icons";
 import "./SideBar.css";
+import User from "../../@types/User";
+
+interface SideBarPropsType {
+  user: User;
+}
 
 const routes = [
-  { key: "users", disabled: false, icon: faUsers },
-  { key: "trainings", disabled: false, icon: faBook },
-  { key: "sessions", disabled: true, icon: faCertificate },
-  { key: "calendar", disabled: true, icon: faCalendar },
-  { key: "tests", disabled: true, icon: faClipboard },
+  {
+    key: "users",
+    disabled: false,
+    icon: faUsers,
+    access: (roles: string[]): boolean => roles.includes("admin"),
+  },
+  {
+    key: "trainings",
+    disabled: true,
+    icon: faBook,
+    access: (roles: string[]): boolean =>
+      roles.includes("admin") || roles.includes("trainer"),
+  },
+  {
+    key: "sessions",
+    disabled: true,
+    icon: faCertificate,
+    access: (roles: string[]): boolean =>
+      roles.includes("admin") || roles.includes("trainer"),
+  },
+  {
+    key: "calendar",
+    disabled: true,
+    icon: faCalendar,
+    access: (roles: string[]): boolean =>
+      roles.includes("admin") ||
+      roles.includes("trainer") ||
+      roles.includes("student"),
+  },
+  {
+    key: "tests",
+    disabled: true,
+    icon: faClipboard,
+    access: (roles: string[]): boolean =>
+      roles.includes("admin") ||
+      roles.includes("trainer") ||
+      roles.includes("student"),
+  },
 ];
 
-const SideBar = () => {
-  const [activePage, setActivePage] = useState<string>("trainings");
+const SideBar = ({ user }: SideBarPropsType) => {
+  const [activePage, setActivePage] = useState<string>(
+    routes.filter((e) => e.access(user.roles))[0].key
+  );
 
   return (
     <div
@@ -34,7 +74,7 @@ const SideBar = () => {
       }}
     >
       <Nav vertical pills>
-        <NavItem className="bg-dark text-white">
+        <NavItem className="bg-dark text-center text-white">
           <NavLink
             href="#"
             style={{
@@ -48,22 +88,23 @@ const SideBar = () => {
           </NavLink>
         </NavItem>
         <br />
-        {routes.map((e) => (
-          <NavItem
-            disabled={e.disabled}
-            active={activePage === e.key}
-            onClick={() => setActivePage(e.key)}
-          >
-            <NavLink
-              disabled={e.disabled}
-              active={activePage === e.key}
-              href="#"
-            >
-              <FontAwesomeIcon icon={e.icon} style={{ marginRight: 10 }} />
-              <FormattedMessage id={e.key} />
-            </NavLink>
-          </NavItem>
-        ))}
+        {routes.map((e) =>
+          e.access(user.roles) ? (
+            <NavItem disabled={e.disabled} active={activePage === e.key}>
+              <NavLink
+                disabled={e.disabled}
+                active={activePage === e.key}
+                href="#"
+                onClick={() => setActivePage(e.key)}
+              >
+                <FontAwesomeIcon icon={e.icon} style={{ marginRight: 10 }} />
+                <FormattedMessage id={e.key} />
+              </NavLink>
+            </NavItem>
+          ) : (
+            <></>
+          )
+        )}
       </Nav>
     </div>
   );

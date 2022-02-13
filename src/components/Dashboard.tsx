@@ -18,7 +18,7 @@ import SideBar from "./parts/SideBar";
 const user = {
   firstName: "Malek",
   lastName: "Boubakri",
-  roles: ["admin", "trainer"],
+  roles: ["student"],
   avatar: "https://avatars.githubusercontent.com/u/22925467?s=40&v=4",
 } as User;
 
@@ -56,7 +56,7 @@ function Dashboard() {
           </Nav>
         </Collapse>
       </Navbar>
-      <SideBar />
+      <SideBar user={user} />
       <Container fluid></Container>
     </>
   );
