@@ -1,6 +1,14 @@
 import { useState, ChangeEvent } from "react";
 import { FormattedMessage } from "react-intl";
-import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from "reactstrap";
+import {
+  Button,
+  Col,
+  Container,
+  Form,
+  FormGroup,
+  Input,
+  Row,
+} from "reactstrap";
 
 function ForgetPassword() {
   const [email, setEmail] = useState<string>("");
@@ -14,7 +22,8 @@ function ForgetPassword() {
         <Col
           xs={12}
           md={6}
-          className="login text-center p-5 d-flex flex-column justify-content-center">
+          className="login text-center p-5 d-flex flex-column justify-content-center"
+        >
           <FormattedMessage tagName="h1" id="forget.title" />
           <FormattedMessage tagName="p" id="forget.subtitle" />
           <Form>
@@ -30,11 +39,11 @@ function ForgetPassword() {
               <FormattedMessage tagName="label" id="login.email" />
             </FormGroup>
             <Button type="button" color="dark" size="lg">
-            <FormattedMessage id="forget.btn" />
+              <FormattedMessage id="forget.btn" />
             </Button>
           </Form>
           <footer className="text-center">
-          <FormattedMessage id="login.copy" />
+            <FormattedMessage id="login.copy" />
           </footer>
         </Col>
         <Col xs={12} md={6} className="screen bg-dark "></Col>

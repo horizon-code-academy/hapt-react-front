@@ -7,7 +7,6 @@ import {
   Form,
   FormGroup,
   Input,
-  Label,
   Row,
 } from "reactstrap";
 
@@ -63,23 +62,23 @@ function Login() {
                     value=""
                     id="flexCheckDefault"
                   />
-                 
+
                   <FormattedMessage tagName="label" id="login.text" />
                 </FormGroup>
               </Col>
               <Col>
-              
-                <a href="#"><FormattedMessage id="login.forget" /></a>
+                <a href="#">
+                  <FormattedMessage id="login.forget" />
+                </a>
               </Col>
             </Row>
 
-            
             <Button type="button" color="dark" size="lg">
               <FormattedMessage id="login.btn" />
             </Button>
           </Form>
           <footer className="text-center">
-          <FormattedMessage id="login.copy" />
+            <FormattedMessage id="login.copy" />
           </footer>
         </Col>
       </Row>
