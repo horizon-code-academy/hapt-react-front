@@ -12,5 +12,6 @@
   "forget.btn": "Send",
   "role.trainer": "Trainer",
   "role.student": "Student",
-  "role.admin": "Administrator"
+  "role.admin": "Administrator",
+  "page.users": "Users"
 }

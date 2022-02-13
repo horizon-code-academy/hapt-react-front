@@ -98,7 +98,7 @@ const SideBar = ({ user }: SideBarPropsType) => {
                 onClick={() => setActivePage(e.key)}
               >
                 <FontAwesomeIcon icon={e.icon} style={{ marginRight: 10 }} />
-                <FormattedMessage id={e.key} />
+                <FormattedMessage id={"page." + e.key} />
               </NavLink>
             </NavItem>
           ) : (

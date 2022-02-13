@@ -14,11 +14,12 @@ import {
 import User from "../@types/User";
 import Avatar from "./parts/Avatar";
 import SideBar from "./parts/SideBar";
+import Users from "./pages/Users";
 
 const user = {
   firstName: "Malek",
   lastName: "Boubakri",
-  roles: ["student"],
+  roles: ["admin", "trainer"],
   avatar: "https://avatars.githubusercontent.com/u/22925467?s=40&v=4",
 } as User;
 
@@ -57,7 +58,9 @@ function Dashboard() {
         </Collapse>
       </Navbar>
       <SideBar user={user} />
-      <Container fluid></Container>
+      <Container fluid>
+        <Users />
+      </Container>
     </>
   );
 }
