@@ -42,7 +42,7 @@ function Login() {
                 value={email}
                 onChange={changeEmail}
               />
-              <Label htmlFor="floatingInput">Email address</Label>
+              <FormattedMessage tagName="label" id="login.email" />
             </FormGroup>
             <FormGroup floating>
               <Input
@@ -52,7 +52,7 @@ function Login() {
                 value={password}
                 onChange={changePassword}
               />
-              <Label htmlFor="floatingPassword">Password</Label>
+              <FormattedMessage tagName="label" id="login.pass" />
             </FormGroup>
             <Row>
               <Col className="d-flex">
@@ -63,24 +63,23 @@ function Login() {
                     value=""
                     id="flexCheckDefault"
                   />
-                  <Label
-                    className="form-check-label"
-                    htmlFor="flexCheckDefault"
-                  >
-                    Remember me
-                  </Label>
+                 
+                  <FormattedMessage tagName="label" id="login.text" />
                 </FormGroup>
               </Col>
               <Col>
-                <a href="#">Forget password</a>
+              
+                <a href="#"><FormattedMessage id="login.forget" /></a>
               </Col>
             </Row>
+
+            
             <Button type="button" color="dark" size="lg">
-              Login
+              <FormattedMessage id="login.btn" />
             </Button>
           </Form>
           <footer className="text-center">
-            Copyright 2022 ©, Horizon code academy
+          <FormattedMessage id="login.copy" />
           </footer>
         </Col>
       </Row>

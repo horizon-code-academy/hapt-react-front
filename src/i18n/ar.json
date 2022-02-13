@@ -1,4 +1,14 @@
 {
   "login.title": "تسجيل الدخول",
-  "login.subtitle": "يرجى تسجيل الدخول إلى حسابك"
+  "login.subtitle": "يرجى تسجيل الدخول إلى حسابك",
+  "login.text": "تذكر كلمة المرور",
+  "login.forget": "نسيت كلمة المرور",
+  "login.pass": "كلمة المرور",
+  "login.email": " بريدك الإلكتروني",
+  "login.btn": "تسجيل الدخول",
+  "login.copy": "حقوق النشر 2022 ©, Horizon code academy",
+  "forget.title": "نسيت كلمة المرور",
+  "forget.subtitle": "جد حسابك",
+  "forget.btn": "إرسال"
+
 }
