@@ -17,7 +17,12 @@ const SideBar = () => {
         <NavItem className="bg-dark text-white">
           <NavLink
             href="#"
-            style={{ fontSize: 24, fontWeight: "bold", padding: 16 }}
+            style={{
+              fontSize: 24,
+              fontWeight: "bold",
+              height: 68,
+              padding: 16,
+            }}
           >
             Horizon Academy
           </NavLink>
