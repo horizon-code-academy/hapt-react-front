@@ -17,5 +17,7 @@
   "page.trainings": "Trainings",
   "page.sessions": "Sessions",
   "page.calendar": "Calendar",
-  "page.testes": "Testes"
+  "page.testes": "Testes",
+  "profil": "Profil",
+  "logout": "Logout"
 }

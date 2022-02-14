@@ -17,5 +17,8 @@
   "page.trainings": "تكوين",
   "page.sessions": "الحصة",
   "page.calendar": "جدول المواعيد",
-  "page.tests": "اختبارات"
+  "page.tests": "اختبارات",
+  "profil": "الملف الشخصي",
+  "logout": "تسجيل خروج"
+
 }
