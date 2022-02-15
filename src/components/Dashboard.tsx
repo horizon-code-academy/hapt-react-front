@@ -14,7 +14,6 @@ import {
 import User from "../@types/User";
 import Avatar from "./parts/Avatar";
 import SideBar from "./parts/SideBar";
-import Users from "./pages/Users";
 
 const user = {
   firstName: "Malek",
@@ -58,9 +57,7 @@ function Dashboard() {
         </Collapse>
       </Navbar>
       <SideBar user={user} />
-      <Container fluid>
-        <Users />
-      </Container>
+      <Container fluid></Container>
     </>
   );
 }

@@ -12,5 +12,13 @@
   "forget.btn": "Envoyer",
   "role.trainer": "Formateur",
   "role.student": "Etudiant",
-  "role.admin": "Administrateur"
+  "role.admin": "Administrateur",
+  "profil": "profile",
+  "logout": "déconnexion",
+  "page.users": "utilisateur",
+  "page.trainings":"formations",
+  "page.sessions":  "sessions",
+  "page.calendar":"calendrier",
+  "page.tests":"Tests"
+
 }

@@ -12,5 +12,13 @@
   "forget.btn": "إرسال",
   "role.trainer": "مدرب",
   "role.student": "طالب",
-  "role.admin": "مشرف"
+  "role.admin": "مشرف",
+  "profil": "ملف تعريف",
+  "logout": "تسجيل الخروج",
+  "page.users":"مستخدم",
+  "page.trainings":"التدريبات",
+  "page.sessions": "جلسات",
+  "page.calendar":"تقويم",
+  "page.tests":"الاختبارات"
+
 }
