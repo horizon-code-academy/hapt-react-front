@@ -12,5 +12,12 @@
   "forget.btn": "Send",
   "role.trainer": "Trainer",
   "role.student": "Student",
-  "role.admin": "Administrator"
+  "role.admin": "Administrator",
+  "profil": "profil",
+  "logout": "logout",
+  "page.users": "users",
+  "page.trainings": "trainings",
+  "page.sessions": "sessions",
+  "page.calendar": "calendar",
+  "page.tests": "tests"
 }
