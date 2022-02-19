@@ -22,19 +22,12 @@
   "logout": "Se déconnecter",
   "page.title.users": "Liste d'utilisateurs",
   "page.users.add": "Ajouter utilisateur",
-<<<<<<< HEAD
-  "user.firstName": "Prénom",
-  "user.lastName": "Nom",
-  "user.email": "Email",
-  "user.phone": "Téléphone"
-=======
-  "page.users.delete": "Supprimer Utilisateur",
   "user.firstName": "Prénom",
   "user.lastName": "Nom",
   "user.email": "Email",
   "user.phone": "Téléphone",
+  "page.users.delete": "Supprimer Utilisateur",
   "user.roles": "Rôles",
   "user.actions": "Actions",
-  "user.fullname":"Nom et Prénom"
->>>>>>> d69dce55392543dfe187b9928dfa7830160aa0cd
+  "user.fullname": "Nom et Prénom"
 }
