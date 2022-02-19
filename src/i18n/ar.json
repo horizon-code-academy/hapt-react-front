@@ -26,8 +26,8 @@
   "user.firstName": "الاسم",
   " user.lastName": "اللقب",
   "user.email": "البريد الإلكتروني",
-  "user.phone": "الأدوار",
-  "user.roles": "الهاتف",
+  "user.roles": "الأدوار",
+  "user.phone": "الهاتف",
   "user.actions": "أجراءات",
   "user.fullname":"الاسم الكامل"
 }

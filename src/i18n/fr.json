@@ -22,8 +22,11 @@
   "logout": "Se déconnecter",
   "page.title.users": "Liste d'utilisateurs",
   "page.users.add": "Ajouter utilisateur",
-  "user.firstName": "prénom",
-  " user.lastName": "nom",
-  "user.email": "email",
-  "user.phone": "téléphone"
+  "user.firstName": "Prénom",
+  " user.lastName": "Nom",
+  "user.email": "Email",
+  "user.phone": "Téléphone",
+  "user.roles": "Rôles",
+  "user.actions": "Actions",
+  "user.fullname":"Nom et Prénom"
 }
