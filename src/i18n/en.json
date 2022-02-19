@@ -10,7 +10,11 @@
   "forget.title": "Forget your Password",
   "forget.subtitle": "Find your account",
   "forget.btn": "Send",
+<<<<<<< HEAD
   "role.teacher": "Teacher",
+=======
+  "role.teacher": "Trainer",
+>>>>>>> d69dce55392543dfe187b9928dfa7830160aa0cd
   "role.student": "Student",
   "role.admin": "Administrator",
   "page.users": "Users",
@@ -22,8 +26,19 @@
   "logout": "Logout",
   "page.title.users": "User's list",
   "page.users.add": "Add user",
+<<<<<<< HEAD
   "user.firstName": "Firstname",
   "user.lastName": "Lastname",
   "user.email": "Email",
   "user.phone": "Phone"
+=======
+  "page.users.delete": "Delete user",
+  "user.firstName": "First name",
+  " user.lastName": "Last name",
+  "user.email": "Email",
+  "user.phone": "Phone",
+  "user.roles": "Roles",
+  "user.actions": "Actions",
+  "user.fullname":"Full Name"
+>>>>>>> d69dce55392543dfe187b9928dfa7830160aa0cd
 }
