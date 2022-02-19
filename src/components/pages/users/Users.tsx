@@ -1,7 +1,7 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FormattedMessage } from "react-intl";
-import { Badge, Button, ButtonGroup, Table } from "reactstrap";
-import { faAdd, faPen } from "@fortawesome/free-solid-svg-icons";
+import { Badge, ButtonGroup, Table } from "reactstrap";
+import UserEdit from "./UserEdit";
+import UserAdd from "./UserAdd";
 import UserDelete from "./UserDelete";
 import { users } from "../../../test/users.fake";
 
@@ -10,19 +10,28 @@ const Users = () => {
     <>
       <div className="d-flex justify-content-between">
         <FormattedMessage tagName="h1" id="page.title.users" />
-        <Button color="success" size="lg" className="mb-2">
-          <FormattedMessage id="page.users.add" />{" "}
-          <FontAwesomeIcon icon={faAdd} />
-        </Button>
+        <UserAdd />
       </div>
       <Table bordered hover responsive striped>
         <thead>
           <tr>
-            <th>Full Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Roles</th>
-            <th>Actions</th>
+            <th>
+              <FormattedMessage id="user.firstName" />
+              {" & "}
+              <FormattedMessage id="user.lastName" />
+            </th>
+            <th>
+              <FormattedMessage id="user.email" />
+            </th>
+            <th>
+              <FormattedMessage id="user.phone" />
+            </th>
+            <th>
+              <FormattedMessage id="user.roles" />
+            </th>
+            <th>
+              <FormattedMessage id="user.actions" />
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -42,9 +51,7 @@ const Users = () => {
               </td>
               <td>
                 <ButtonGroup>
-                  <Button color="warning">
-                    <FontAwesomeIcon icon={faPen} />
-                  </Button>
+                  <UserEdit user={user} />
                   <UserDelete user={user} />
                 </ButtonGroup>
               </td>

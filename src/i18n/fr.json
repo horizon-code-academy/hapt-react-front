@@ -10,10 +10,10 @@
   "forget.title": "Mot de passe oublié",
   "forget.subtitle": "Trouvez votre compte",
   "forget.btn": "Envoyer",
-  "role.trainer": "Formateur",
+  "role.teacher": "Formateur",
   "role.student": "Etudiant",
   "role.admin": "Administrateur",
-  "page.users": "utilisateurs",
+  "page.users": "Utilisateurs",
   "page.trainings": "Formations",
   "page.sessions": "Séances",
   "page.calendar": "Calendrier",
@@ -22,8 +22,8 @@
   "logout": "Se déconnecter",
   "page.title.users": "Liste d'utilisateurs",
   "page.users.add": "Ajouter utilisateur",
-  "user.firstName": "prénom",
-  " user.lastName": "nom",
-  "user.email": "email",
-  "user.phone": "téléphone"
+  "user.firstName": "Prénom",
+  "user.lastName": "Nom",
+  "user.email": "Email",
+  "user.phone": "Téléphone"
 }

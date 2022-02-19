@@ -15,11 +15,12 @@ import User from "../@types/User";
 import Avatar from "./parts/Avatar";
 import SideBar from "./parts/SideBar";
 import Users from "./pages/users/Users";
+import Subjects from "./pages/subjects/Subjects";
 
 const user = {
   firstName: "Malek",
   lastName: "Boubakri",
-  roles: ["admin", "trainer"],
+  roles: ["admin", "teacher"],
   avatar: "https://avatars.githubusercontent.com/u/22925467?s=40&v=4",
 } as User;
 
@@ -60,7 +61,8 @@ function Dashboard() {
       <SideBar user={user} />
       <Container fluid>
         <main>
-          <Users />
+          {/*<Users />*/}
+          <Subjects />
         </main>
       </Container>
     </>

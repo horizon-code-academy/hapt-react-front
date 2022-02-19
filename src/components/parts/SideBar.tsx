@@ -28,14 +28,14 @@ const routes = [
     disabled: true,
     icon: faBook,
     access: (roles: string[]): boolean =>
-      roles.includes("admin") || roles.includes("trainer"),
+      roles.includes("admin") || roles.includes("teacher"),
   },
   {
     key: "sessions",
     disabled: true,
     icon: faCertificate,
     access: (roles: string[]): boolean =>
-      roles.includes("admin") || roles.includes("trainer"),
+      roles.includes("admin") || roles.includes("teacher"),
   },
   {
     key: "calendar",
@@ -43,7 +43,7 @@ const routes = [
     icon: faCalendar,
     access: (roles: string[]): boolean =>
       roles.includes("admin") ||
-      roles.includes("trainer") ||
+      roles.includes("teacher") ||
       roles.includes("student"),
   },
   {
@@ -52,7 +52,7 @@ const routes = [
     icon: faClipboard,
     access: (roles: string[]): boolean =>
       roles.includes("admin") ||
-      roles.includes("trainer") ||
+      roles.includes("teacher") ||
       roles.includes("student"),
   },
 ];
