@@ -22,6 +22,7 @@
   "logout": "Se déconnecter",
   "page.title.users": "Liste d'utilisateurs",
   "page.users.add": "Ajouter utilisateur",
+  "page.users.delete": "Supprimer Utilisateur",
   "user.firstName": "Prénom",
   "user.lastName": "Nom",
   "user.email": "Email",
