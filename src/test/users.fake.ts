@@ -8,7 +8,7 @@ export const users: User[] = [
     password: "123456789",
     phone: "+216 22 111 333",
     email: "malek@tuskens.com",
-    roles: ["teacher", "admin"],
+    roles: ["teacher"],
     avatar: "https://avatars.githubusercontent.com/u/22925467?s=40&v=4",
   },
   {

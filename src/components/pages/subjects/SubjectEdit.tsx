@@ -38,7 +38,7 @@ const SubjectEdit = ({ subject }: { subject: Subject }) => {
         isOpen={isOpened}
         toggle={() => setIsOpened(!isOpened)}
       >
-        <ModalHeader className="bg-warning" toggle={function noRefCheck() {}}>
+        <ModalHeader className="bg-warning" toggle={() => setIsOpened(false)}>
           <FormattedMessage id="Subjects.edit.dialog.title" />
         </ModalHeader>
         <ModalBody>

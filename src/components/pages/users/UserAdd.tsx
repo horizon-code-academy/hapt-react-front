@@ -16,6 +16,16 @@ import {
 
 const UserAdd = () => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
+
+  // form states
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [address, setAddress] = useState<string | undefined>("");
+  const [roles, setRoles] = useState<string[]>([]);
+
   return (
     <>
       <Button
@@ -42,50 +52,92 @@ const UserAdd = () => {
         <ModalBody>
           <Form inline>
             <FormGroup floating>
-              <Input id="firstname" name="firstname" type="email" />
+              <Input
+                value={firstName}
+                id="firstname"
+                name="firstname"
+                type="text"
+                onChange={(e) => setFirstName(e.target.value)}
+              />
               <Label for="firstname">
                 <FormattedMessage id="user.firstName" />
               </Label>
             </FormGroup>
             <FormGroup floating>
-              <Input id="email" name="email" type="email" />
+              <Input
+                value={lastName}
+                id="lastName"
+                name="lastName"
+                type="text"
+                onChange={(e) => setLastName(e.target.value)}
+              />
+              <Label for="lastName">
+                <FormattedMessage id="user.lastName" />
+              </Label>
+            </FormGroup>
+            <FormGroup floating>
+              <Input
+                value={email}
+                id="email"
+                name="email"
+                type="email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
               <Label for="email">
                 <FormattedMessage id="user.email" />
               </Label>
             </FormGroup>
             <FormGroup floating>
-              <Input id="password" name="password" type="password" />
+              <Input
+                value={password}
+                id="password"
+                name="password"
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
               <Label for="password">
                 <FormattedMessage id="user.password" />
               </Label>
             </FormGroup>
             <FormGroup floating>
-              <Input id="phone" name="phone" type="tel" />
+              <Input
+                value={phone}
+                id="phone"
+                name="phone"
+                type="tel"
+                onChange={(e) => setPhone(e.target.value)}
+              />
               <Label for="phone">
                 <FormattedMessage id="user.phone" />
               </Label>
             </FormGroup>
             <FormGroup floating>
-              <Input id="address" name="address" type="text" />
+              <Input
+                value={address}
+                id="address"
+                name="address"
+                type="text"
+                onChange={(e) => setAddress(e.target.value)}
+              />
               <Label for="address">
                 <FormattedMessage id="user.address" />
               </Label>
             </FormGroup>
             <FormGroup check>
-              <Input type="checkbox" />
-              <Label check>
+              <Input checked={roles.includes("teacher")} type="checkbox" />
+              <Label check={roles.includes("teacher")}>
                 <FormattedMessage id="role.teacher" />
               </Label>
             </FormGroup>
             <FormGroup check>
-              <Input type="checkbox" />
-              <Label check>
+              <Input checked={roles.includes("student")} type="checkbox" />
+              <Label check={roles.includes("student")}>
                 <FormattedMessage id="role.student" />
               </Label>
             </FormGroup>
             <FormGroup check>
-              <Input type="checkbox" />
-              <Label check>
+              <Input checked={roles.includes("admin")} type="checkbox" />
+              <Label check={roles.includes("admin")}>
                 <FormattedMessage id="role.admin" />
               </Label>
             </FormGroup>

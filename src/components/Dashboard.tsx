@@ -61,8 +61,8 @@ function Dashboard() {
       <SideBar user={user} />
       <Container fluid>
         <main>
-          {/*<Users />*/}
-          <Subjects />
+          {/*<Subjects />*/}
+          <Users />
         </main>
       </Container>
     </>
