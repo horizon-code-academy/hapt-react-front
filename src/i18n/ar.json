@@ -20,6 +20,6 @@
   "page.tests": "اختبارات",
   "profil": "الملف الشخصي",
   "logout": "تسجيل خروج",
-  "page.title.users": "",
-  "page.users.add": ""
+  "page.title.users": "قائمة المستخدمين",
+  "page.users.add": "إضافة مستخدم"
 }
