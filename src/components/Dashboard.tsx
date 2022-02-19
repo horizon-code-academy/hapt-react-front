@@ -14,7 +14,7 @@ import {
 import User from "../@types/User";
 import Avatar from "./parts/Avatar";
 import SideBar from "./parts/SideBar";
-import Users from "./pages/Users";
+import Users from "./pages/users/Users";
 
 const user = {
   firstName: "Malek",
