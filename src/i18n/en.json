@@ -13,5 +13,11 @@
   "role.trainer": "Trainer",
   "role.student": "Student",
   "role.admin": "Administrator",
-  "page.users": "Users"
+  "page.users": "Users",
+  "page.trainings": "Trainings",
+  "page.sessions": "Sessions",
+  "page.calendar": "Calendar",
+  "page.testes": "Testes",
+  "profil": "Profil",
+  "logout": "Logout"
 }
