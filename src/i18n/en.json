@@ -21,5 +21,9 @@
   "profil": "Profil",
   "logout": "Logout",
   "page.title.users": "User's list",
-  "page.users.add": "Add user"
+  "page.users.add": "Add user",
+  "user.firstName": "firstname",
+  " user.lastName": "lastname",
+  "user.email": "email",
+  "user.phone": "phone"
 }

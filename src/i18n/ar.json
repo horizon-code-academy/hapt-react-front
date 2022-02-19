@@ -21,5 +21,10 @@
   "profil": "الملف الشخصي",
   "logout": "تسجيل خروج",
   "page.title.users": "قائمة المستخدمين",
-  "page.users.add": "إضافة مستخدم"
+  "page.users.add": "إضافة مستخدم",
+  "page.users.delete": "حذف المستخدم",
+  "user.firstName": "الاسم",
+  " user.lastName": "اللقب",
+  "user.email": "البريد الإلكتروني",
+  "user.phone": "الهاتف"
 }
