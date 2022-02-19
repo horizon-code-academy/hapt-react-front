@@ -21,5 +21,9 @@
   "profil": "Profil",
   "logout": "Se déconnecter",
   "page.title.users": "Liste d'utilisateurs",
-  "page.users.add": "Ajouter utilisateur"
+  "page.users.add": "Ajouter utilisateur",
+  "user.firstName": "prénom",
+  " user.lastName": "nom",
+  "user.email": "email",
+  "user.phone": "téléphone"
 }
