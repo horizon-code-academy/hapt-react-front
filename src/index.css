@@ -16,3 +16,14 @@ a {
   text-decoration: none !important;
   color: inherit !important;
 }
+
+main {
+  width: calc(100% - 260px);
+  margin-left: 250px;
+  padding: 25px;
+}
+
+th:last-child,
+td:last-child {
+  text-align: right;
+}

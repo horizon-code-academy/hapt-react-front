@@ -18,6 +18,8 @@
   "page.sessions": "Séances",
   "page.calendar": "Calendrier",
   "page.tests": "Tests",
-  "profil": "profil",
-  "logout": "Se déconnecter"
+  "profil": "Profil",
+  "logout": "Se déconnecter",
+  "page.title.users": "Liste d'utilisateurs",
+  "page.users.add": "Ajouter utilisateur"
 }

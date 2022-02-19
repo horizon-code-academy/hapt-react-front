@@ -59,7 +59,9 @@ function Dashboard() {
       </Navbar>
       <SideBar user={user} />
       <Container fluid>
-        <Users />
+        <main>
+          <Users />
+        </main>
       </Container>
     </>
   );
