@@ -4,9 +4,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FormattedMessage } from "react-intl";
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import User from "../../../@types/User";
+import { deleteUsers } from "../../../actions/users/action";
 
-const UserDelete = ({ user }: { user: User }) => {
+interface UserDeletePropsType {
+  user: User;
+  refresh: () => void;
+}
+
+const UserDelete = ({ user, refresh }: UserDeletePropsType) => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
+
+  const submit = () => {
+    deleteUsers(user, () => {
+      refresh();
+      setIsOpened(false);
+    });
+  };
 
   return (
     <>
@@ -30,7 +43,7 @@ const UserDelete = ({ user }: { user: User }) => {
           {user.lastName}?
         </ModalBody>
         <ModalFooter>
-          <Button color="danger" onClick={function noRefCheck() {}}>
+          <Button color="danger" onClick={submit}>
             <FormattedMessage id="button.confirm" />
           </Button>{" "}
           <Button onClick={() => setIsOpened(false)}>

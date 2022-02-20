@@ -1,6 +1,6 @@
 import { faPen } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FormattedMessage } from "react-intl";
 import {
   Button,
@@ -14,8 +14,14 @@ import {
   ModalHeader,
 } from "reactstrap";
 import User from "../../../@types/User";
+import { editUsers } from "../../../actions/users/action";
 
-const UserEdit = ({ user }: { user: User }) => {
+interface UserEditPropsType {
+  user: User;
+  refresh: () => void;
+}
+
+const UserEdit = ({ user, refresh }: UserEditPropsType) => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
 
   // form states
@@ -27,10 +33,48 @@ const UserEdit = ({ user }: { user: User }) => {
   const [address, setAddress] = useState<string | undefined>(user.address);
   const [roles, setRoles] = useState<string[]>(user.roles);
 
+  useEffect(() => {
+    setFirstName(user.firstName);
+    setLastName(user.lastName);
+    setAddress(user.address);
+    setEmail(user.email);
+    setPhone(user.phone);
+    setPassword(user.password);
+    setRoles(user.roles);
+  }, []);
+
   const handleCheckbox = (role: string) => {
     setRoles(
       roles.includes(role) ? roles.filter((e) => e !== role) : [...roles, role]
     );
+  };
+
+  const submit = () => {
+    const newUser = {
+      _id: user._id,
+      firstName,
+      lastName,
+      phone,
+      email,
+      password,
+      address,
+      roles,
+    };
+    editUsers(newUser, () => {
+      refresh();
+      setIsOpened(false);
+      reset();
+    });
+  };
+
+  const reset = () => {
+    setFirstName("");
+    setLastName("");
+    setAddress("");
+    setEmail("");
+    setPhone("");
+    setPassword("");
+    setRoles([]);
   };
 
   return (
@@ -154,7 +198,7 @@ const UserEdit = ({ user }: { user: User }) => {
           </Form>
         </ModalBody>
         <ModalFooter>
-          <Button color="warning" onClick={function noRefCheck() {}}>
+          <Button color="warning" onClick={submit}>
             <FormattedMessage id="button.confirm" />
           </Button>{" "}
           <Button onClick={() => setIsOpened(false)}>

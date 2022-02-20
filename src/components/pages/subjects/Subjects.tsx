@@ -1,11 +1,15 @@
+import { useState } from "react";
 import { FormattedMessage } from "react-intl";
 import { ButtonGroup, Table } from "reactstrap";
 import SubjectEdit from "./SubjectEdit";
 import SubjectAdd from "./SubjectAdd";
 import SubjectDelete from "./SubjectDelete";
-import { subjects } from "../../../test/subjects.fake";
+import Subject from "../../../@types/Subject";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBoxOpen } from "@fortawesome/free-solid-svg-icons";
 
 const Subjects = () => {
+  const [subjects, setSubjects] = useState<Subject[]>([]);
   return (
     <>
       <div className="d-flex justify-content-between">
@@ -33,20 +37,30 @@ const Subjects = () => {
           </tr>
         </thead>
         <tbody>
-          {subjects.map((subject, i) => (
-            <tr key={i}>
-              <td scope="row">{subject.label}</td>
-              <td>{subject.field}</td>
-              <td>{subject.nb_hour}</td>
-              <td>{subject.price_hour}</td>
-              <td>
-                <ButtonGroup>
-                  <SubjectEdit subject={subject} />
-                  <SubjectDelete subject={subject} />
-                </ButtonGroup>
+          {subjects.length ? (
+            subjects.map((subject, i) => (
+              <tr key={i}>
+                <td scope="row">{subject.label}</td>
+                <td>{subject.field}</td>
+                <td>{subject.nb_hour}</td>
+                <td>{subject.price_hour}</td>
+                <td>
+                  <ButtonGroup>
+                    <SubjectEdit subject={subject} />
+                    <SubjectDelete subject={subject} />
+                  </ButtonGroup>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan={5} className="text-center p-5">
+                <FontAwesomeIcon icon={faBoxOpen} size="4x" />
+                <br />
+                <FormattedMessage id="page.users.no-data" />
               </td>
             </tr>
-          ))}
+          )}
         </tbody>
       </Table>
     </>

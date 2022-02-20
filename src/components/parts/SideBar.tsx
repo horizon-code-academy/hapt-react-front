@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { FormattedMessage } from "react-intl";
 import { Nav, NavItem, NavLink } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -90,7 +90,11 @@ const SideBar = ({ user }: SideBarPropsType) => {
         <br />
         {routes.map((e) =>
           e.access(user.roles) ? (
-            <NavItem disabled={e.disabled} active={activePage === e.key}>
+            <NavItem
+              key={e.key}
+              disabled={e.disabled}
+              active={activePage === e.key}
+            >
               <NavLink
                 disabled={e.disabled}
                 active={activePage === e.key}
@@ -102,7 +106,7 @@ const SideBar = ({ user }: SideBarPropsType) => {
               </NavLink>
             </NavItem>
           ) : (
-            <></>
+            <Fragment key={e.key} />
           )
         )}
       </Nav>

@@ -43,7 +43,7 @@ const SubjectAdd = () => {
       >
         <ModalHeader
           className="bg-success text-white"
-          toggle={function noRefCheck() {}}
+          toggle={() => setIsOpened(!isOpened)}
         >
           <FormattedMessage id="Subjects.add.dialog.title" />
         </ModalHeader>

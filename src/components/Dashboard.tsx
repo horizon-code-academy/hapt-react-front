@@ -41,7 +41,7 @@ function Dashboard() {
                   {user.firstName} {user.lastName}
                   <br />
                   {user.roles.map((e) => (
-                    <Badge style={{ marginRight: 5 }}>
+                    <Badge key={e} style={{ marginRight: 5 }}>
                       <FormattedMessage id={"role." + e} />
                     </Badge>
                   ))}

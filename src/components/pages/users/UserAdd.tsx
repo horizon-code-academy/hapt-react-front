@@ -13,8 +13,13 @@ import {
   ModalFooter,
   ModalHeader,
 } from "reactstrap";
+import { addUser } from "../../../actions/users/action";
 
-const UserAdd = () => {
+interface UserAddPropsType {
+  refresh: () => void;
+}
+
+const UserAdd = (props: UserAddPropsType) => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
 
   // form states
@@ -25,6 +30,39 @@ const UserAdd = () => {
   const [password, setPassword] = useState<string>("");
   const [address, setAddress] = useState<string | undefined>("");
   const [roles, setRoles] = useState<string[]>([]);
+
+  const handleCheckbox = (role: string) => {
+    setRoles(
+      roles.includes(role) ? roles.filter((e) => e !== role) : [...roles, role]
+    );
+  };
+
+  const submit = () => {
+    const newUser = {
+      firstName,
+      lastName,
+      phone,
+      email,
+      password,
+      address,
+      roles,
+    };
+    addUser(newUser, () => {
+      props.refresh();
+      setIsOpened(false);
+      reset();
+    });
+  };
+
+  const reset = () => {
+    setFirstName("");
+    setLastName("");
+    setAddress("");
+    setEmail("");
+    setPhone("");
+    setPassword("");
+    setRoles([]);
+  };
 
   return (
     <>
@@ -45,7 +83,7 @@ const UserAdd = () => {
       >
         <ModalHeader
           className="bg-success text-white"
-          toggle={function noRefCheck() {}}
+          toggle={() => setIsOpened(!isOpened)}
         >
           <FormattedMessage id="users.add.dialog.title" />
         </ModalHeader>
@@ -124,19 +162,31 @@ const UserAdd = () => {
               </Label>
             </FormGroup>
             <FormGroup check>
-              <Input checked={roles.includes("teacher")} type="checkbox" />
+              <Input
+                checked={roles.includes("teacher")}
+                type="checkbox"
+                onChange={() => handleCheckbox("teacher")}
+              />
               <Label check={roles.includes("teacher")}>
                 <FormattedMessage id="role.teacher" />
               </Label>
             </FormGroup>
             <FormGroup check>
-              <Input checked={roles.includes("student")} type="checkbox" />
+              <Input
+                checked={roles.includes("student")}
+                type="checkbox"
+                onChange={() => handleCheckbox("student")}
+              />
               <Label check={roles.includes("student")}>
                 <FormattedMessage id="role.student" />
               </Label>
             </FormGroup>
             <FormGroup check>
-              <Input checked={roles.includes("admin")} type="checkbox" />
+              <Input
+                checked={roles.includes("admin")}
+                type="checkbox"
+                onChange={() => handleCheckbox("admin")}
+              />
               <Label check={roles.includes("admin")}>
                 <FormattedMessage id="role.admin" />
               </Label>
@@ -144,7 +194,7 @@ const UserAdd = () => {
           </Form>
         </ModalBody>
         <ModalFooter>
-          <Button color="success" onClick={function noRefCheck() {}}>
+          <Button color="success" onClick={submit}>
             <FormattedMessage id="button.confirm" />
           </Button>{" "}
           <Button onClick={() => setIsOpened(false)}>

@@ -29,5 +29,6 @@
   "page.users.delete": "Delete user",
   "user.roles": "Roles",
   "user.actions": "Actions",
-  "user.fullname": "Full Name"
+  "user.fullname": "Full Name",
+  "page.users.no-data": "No data availbale..."
 }
