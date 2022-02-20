@@ -3,7 +3,7 @@ import { FormattedMessage } from "react-intl";
 import { Badge, Button, ButtonGroup, Table } from "reactstrap";
 import { faAdd, faPen } from "@fortawesome/free-solid-svg-icons";
 import UserDelete from "./UserDelete";
-import { users } from "../../../test/users.fake";
+//import { users } from "../../../test/users.fake";
 
 const Users = () => {
   return (
