@@ -33,15 +33,6 @@ const UserEdit = ({ user, refresh }: UserEditPropsType) => {
   const [address, setAddress] = useState<string | undefined>(user.address);
   const [roles, setRoles] = useState<string[]>(user.roles);
 
-  useEffect(() => {
-    setFirstName(user.firstName);
-    setLastName(user.lastName);
-    setAddress(user.address);
-    setEmail(user.email);
-    setPhone(user.phone);
-    setPassword(user.password);
-    setRoles(user.roles);
-  }, []);
 
   const handleCheckbox = (role: string) => {
     setRoles(
@@ -63,18 +54,18 @@ const UserEdit = ({ user, refresh }: UserEditPropsType) => {
     editUsers(newUser, () => {
       refresh();
       setIsOpened(false);
-      reset();
+      reset(newUser);
     });
   };
 
-  const reset = () => {
-    setFirstName("");
-    setLastName("");
-    setAddress("");
-    setEmail("");
-    setPhone("");
-    setPassword("");
-    setRoles([]);
+  const reset = (user:User) => {
+    setFirstName(user.firstName);
+    setLastName(user.lastName);
+    setAddress(user.address);
+    setEmail(user.email);
+    setPhone(user.phone);
+    setPassword(user.password);
+    setRoles(user.roles);
   };
 
   return (

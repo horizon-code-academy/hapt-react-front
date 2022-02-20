@@ -16,6 +16,8 @@ import Avatar from "./parts/Avatar";
 import SideBar from "./parts/SideBar";
 import Users from "./pages/users/Users";
 import Subjects from "./pages/subjects/Subjects";
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 const user = {
   firstName: "Malek",
@@ -25,7 +27,14 @@ const user = {
 } as User;
 
 function Dashboard() {
-  return (
+
+  const [error,setError] = useState<boolean>(false);
+
+  useEffect(()=>{
+    axios.get("http://localhost:3000/user").then(()=>setError(false)).catch(()=>setError(true))
+  })
+
+  return  error? <h1>"error open api" </h1>: (
     <>
       <Navbar color="danger" expand="md" light>
         <NavbarToggler onClick={function noRefCheck() {}} />
