@@ -30,5 +30,16 @@
   "user.roles": "Roles",
   "user.actions": "Actions",
   "user.fullname": "Full Name",
-  "page.users.no-data": "No data availbale..."
+  "page.users.no-data": "No data availbale...",
+  "page.subjects.add": "subjects add",
+  "Subjects.add.dialog.title":"add subject",
+  "subject.label":"label",
+  "subject.field":"filed",
+  "subject.nb_hour":"nb_hour",
+  "subject.price_hour":"price_hour",
+  "subject.description":"description",
+  "button.confirm":"confirmed",
+  "button.cancel":"cancel",
+  "page.title.subjects":"subjects",
+  "subject.actions":"actions"
 }
