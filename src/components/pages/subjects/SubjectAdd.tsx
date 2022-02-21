@@ -13,8 +13,13 @@ import {
   ModalFooter,
   ModalHeader,
 } from "reactstrap";
+import { addSubject } from "../../../actions/subjects/action";
 
-const SubjectAdd = () => {
+interface SubjectAddPropsType {
+  refresh: () => void;
+}
+
+const SubjectAdd = (props: SubjectAddPropsType) => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
 
   // form states
@@ -23,6 +28,30 @@ const SubjectAdd = () => {
   const [nb_hour, setNbHour] = useState<number>(0);
   const [price_hour, setPriceHour] = useState<number>(0);
   const [description, setDescription] = useState<string | undefined>("");
+
+  const submit = () => {
+    const newSubject = {
+      label,
+      field,
+      nb_hour,
+      price_hour,
+      description,
+    };
+
+    addSubject(newSubject, () => {
+      props.refresh();
+      setIsOpened(false);
+      reset();
+    });
+  };
+
+  const reset = () => {
+    setLabel("");
+    setField("");
+    setNbHour(0);
+    setPriceHour(0);
+    setDescription("");
+  };
 
   return (
     <>
@@ -50,13 +79,25 @@ const SubjectAdd = () => {
         <ModalBody>
           <Form inline>
             <FormGroup floating>
-              <Input value={label} id="label" name="label" type="text" />
+              <Input
+                value={label}
+                id="label"
+                name="label"
+                type="text"
+                onChange={(e) => setLabel(e.target.value)}
+              />
               <Label for="label">
                 <FormattedMessage id="subject.label" />
               </Label>
             </FormGroup>
             <FormGroup floating>
-              <Input value={field} id="field" name="field" type="select">
+              <Input
+                value={field}
+                id="field"
+                name="field"
+                type="select"
+                onChange={(e) => setField(e.target.value)}
+              >
                 <option value="it">IT</option>
                 <option value="finance">Finance</option>
                 <option value="art">Art</option>
@@ -94,6 +135,7 @@ const SubjectAdd = () => {
                 id="description"
                 name="description"
                 type="text"
+                onChange={(e) => setDescription(e.target.value)}
               />
               <Label for="description">
                 <FormattedMessage id="subject.description" />
@@ -102,7 +144,7 @@ const SubjectAdd = () => {
           </Form>
         </ModalBody>
         <ModalFooter>
-          <Button color="success" onClick={function noRefCheck() {}}>
+          <Button color="success" onClick={submit}>
             <FormattedMessage id="button.confirm" />
           </Button>{" "}
           <Button onClick={() => setIsOpened(false)}>

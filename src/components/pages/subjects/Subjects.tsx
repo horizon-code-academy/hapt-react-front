@@ -7,6 +7,7 @@ import SubjectDelete from "./SubjectDelete";
 import Subject from "../../../@types/Subject";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBoxOpen } from "@fortawesome/free-solid-svg-icons";
+import { getSubjects } from "../../../actions/subjects/action";
 
 const Subjects = () => {
   const [subjects, setSubjects] = useState<Subject[]>([]);
@@ -14,7 +15,7 @@ const Subjects = () => {
     <>
       <div className="d-flex justify-content-between">
         <FormattedMessage tagName="h1" id="page.title.subjects" />
-        <SubjectAdd />
+        <SubjectAdd refresh={() => getSubjects(setSubjects)} />
       </div>
       <Table bordered hover responsive striped>
         <thead>
@@ -46,8 +47,14 @@ const Subjects = () => {
                 <td>{subject.price_hour}</td>
                 <td>
                   <ButtonGroup>
-                    <SubjectEdit subject={subject} />
-                    <SubjectDelete subject={subject} />
+                    <SubjectEdit
+                      subject={subject}
+                      refresh={() => getSubjects(setSubjects)}
+                    />
+                    <SubjectDelete
+                      subject={subject}
+                      refresh={() => getSubjects(setSubjects)}
+                    />
                   </ButtonGroup>
                 </td>
               </tr>
