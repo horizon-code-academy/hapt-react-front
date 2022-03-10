@@ -40,5 +40,10 @@
   "button.confirm":"confirmer",
   "button.cancel":"annuler",
   "page.title.subjects":"sujets",
-  "subject.actions":"actions"
+  "subject.actions":"actions",
+  "page.title.tests":"Tests",
+  "tests.exam":"Devoir",
+  "tests.score":"Moyenne",
+  "tests.note":"Note",
+  "tests.student":"Eleve"
 }

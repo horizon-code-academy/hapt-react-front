@@ -40,5 +40,10 @@
   "button.confirm":"أكد",
   "button.cancel":"لالغاء",
   "page.title.subjects":"المواضيع",
-  "subject.actions":"أجراءات"
+  "subject.actions":"أجراءات",
+  "page.title.tests":"الاختبارات",
+  "tests.exam":"امتحان",
+  "tests.score":"نتيجة",
+  "tests.note":"ملاحظة",
+  "tests.student":"طالب"
 }

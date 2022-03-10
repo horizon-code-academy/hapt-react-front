@@ -33,14 +33,14 @@ const routes = [
   },
   {
     key: "sessions",
-    disabled: true,
+    disabled: false,
     icon: faCertificate,
     access: (roles: string[]): boolean =>
       roles.includes("admin") || roles.includes("teacher"),
   },
   {
     key: "calendar",
-    disabled: true,
+    disabled: false,
     icon: faCalendar,
     access: (roles: string[]): boolean =>
       roles.includes("admin") ||
@@ -49,7 +49,7 @@ const routes = [
   },
   {
     key: "tests",
-    disabled: true,
+    disabled: false,
     icon: faClipboard,
     access: (roles: string[]): boolean =>
       roles.includes("admin") ||
