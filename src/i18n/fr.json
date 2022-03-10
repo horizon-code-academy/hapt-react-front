@@ -29,5 +29,16 @@
   "page.users.delete": "Supprimer Utilisateur",
   "user.roles": "Rôles",
   "user.actions": "Actions",
-  "user.fullname": "Nom et Prénom"
+  "user.fullname": "Nom et Prénom",
+  "page.subjects.add": "les sujets ajoutent",
+  "Subjects.add.dialog.title":"ajouter des sujets",
+  "subject.label":"nom",
+  "subject.field":"domaine",
+  "subject.nb_hour":"nombre des heures",
+  "subject.price_hour":"prix des heures",
+  "subject.description":"description",
+  "button.confirm":"confirmer",
+  "button.cancel":"annuler",
+  "page.title.subjects":"sujets",
+  "subject.actions":"actions"
 }

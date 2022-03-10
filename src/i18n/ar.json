@@ -29,5 +29,16 @@
   "user.roles": "الأدوار",
   "user.phone": "الهاتف",
   "user.actions": "أجراءات",
-  "user.fullname":"الاسم الكامل"
+  "user.fullname":"الاسم الكامل",
+  "page.subjects.add": "مواضيع تضاف",
+  "Subjects.add.dialog.title":"إضافة الموضوع",
+  "subject.label":"اسم الموضوع",
+  "subject.field":"مجال",
+  "subject.nb_hour":"عدد الساعات",
+  "subject.price_hour":"السعر لكل ساعة",
+  "subject.description":"وصف",
+  "button.confirm":"أكد",
+  "button.cancel":"لالغاء",
+  "page.title.subjects":"المواضيع",
+  "subject.actions":"أجراءات"
 }

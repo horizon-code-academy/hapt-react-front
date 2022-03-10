@@ -4,9 +4,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FormattedMessage } from "react-intl";
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import Subject from "../../../@types/Subject";
+import { deleteSubjects } from "../../../actions/subjects/action";
 
-const SubjectDelete = ({ subject }: { subject: Subject }) => {
+interface SubjectDeletePropsType {
+  subject: Subject;
+  refresh: () => void;
+}
+
+const SubjectDelete = ({ subject, refresh }: SubjectDeletePropsType) => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
+
+  const submit = () => {
+    deleteSubjects(subject, () => {
+      refresh();
+      setIsOpened(false);
+    });
+  };
 
   return (
     <>
@@ -29,7 +42,7 @@ const SubjectDelete = ({ subject }: { subject: Subject }) => {
           <FormattedMessage id="subjects.delete.dialog.text" /> {subject.label}?
         </ModalBody>
         <ModalFooter>
-          <Button color="danger" onClick={function noRefCheck() {}}>
+          <Button color="danger" onClick={submit}>
             <FormattedMessage id="button.confirm" />
           </Button>{" "}
           <Button onClick={() => setIsOpened(false)}>

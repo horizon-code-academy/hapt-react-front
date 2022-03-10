@@ -14,8 +14,13 @@ import {
   ModalHeader,
 } from "reactstrap";
 import Subject from "../../../@types/Subject";
+import { editSubjects } from "../../../actions/subjects/action";
 
-const SubjectEdit = ({ subject }: { subject: Subject }) => {
+interface SubjectEditPropsType {
+  subject: Subject;
+  refresh: () => void;
+}
+const SubjectEdit = ({ subject, refresh }: SubjectEditPropsType) => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
 
   // form states
@@ -26,6 +31,31 @@ const SubjectEdit = ({ subject }: { subject: Subject }) => {
   const [description, setDescription] = useState<string | undefined>(
     subject.description
   );
+
+  const submit = () => {
+    const newSubject = {
+      _id: subject._id,
+      label,
+      field,
+      nb_hour,
+      price_hour,
+      description,
+    };
+
+    editSubjects(newSubject, () => {
+      refresh();
+      setIsOpened(false);
+      reset(newSubject);
+    });
+  };
+
+  const reset = (subject: Subject) => {
+    setLabel(subject.label);
+    setField(subject.field);
+    setNbHour(subject.nb_hour);
+    setPriceHour(subject.price_hour);
+    setDescription(subject.description);
+  };
 
   return (
     <>
@@ -96,7 +126,7 @@ const SubjectEdit = ({ subject }: { subject: Subject }) => {
           </Form>
         </ModalBody>
         <ModalFooter>
-          <Button color="warning" onClick={function noRefCheck() {}}>
+          <Button color="warning" onClick={submit}>
             <FormattedMessage id="button.confirm" />
           </Button>{" "}
           <Button onClick={() => setIsOpened(false)}>
