@@ -1,5 +1,5 @@
 import { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
 import { Nav, NavItem, NavLink } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -59,9 +59,16 @@ const routes = [
 ];
 
 const SideBar = ({ user }: SideBarPropsType) => {
+  let navigate = useNavigate();
+
   const [activePage, setActivePage] = useState<string>(
     routes.filter((e) => e.access(user.roles))[0].key
   );
+
+  const navigateTo = (page: string) => {
+    setActivePage(page);
+    navigate(page);
+  };
 
   return (
     <div
@@ -99,13 +106,10 @@ const SideBar = ({ user }: SideBarPropsType) => {
               <NavLink
                 disabled={e.disabled}
                 active={activePage === e.key}
-                href="#"
-                onClick={() => setActivePage(e.key)}
+                onClick={() => navigateTo(e.key)}
               >
-                <Link to={"/" + e.key}>
-                  <FontAwesomeIcon icon={e.icon} style={{ marginRight: 10 }} />
-                  <FormattedMessage id={"page." + e.key} />
-                </Link>
+                <FontAwesomeIcon icon={e.icon} style={{ marginRight: 10 }} />
+                <FormattedMessage id={"page." + e.key} />
               </NavLink>
             </NavItem>
           ) : (
