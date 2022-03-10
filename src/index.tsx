@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { IntlProvider, MessageFormatElement } from "react-intl";
+import { BrowserRouter } from "react-router-dom";
+import { IntlProvider } from "react-intl";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import App from "./App";
@@ -27,9 +28,11 @@ const messages: Record<string, string> = allMessages[userLang];
 
 ReactDOM.render(
   <React.StrictMode>
-    <IntlProvider messages={messages} locale="fr" defaultLocale="en">
-      <App />
-    </IntlProvider>
+    <BrowserRouter>
+      <IntlProvider messages={messages} locale="fr" defaultLocale="en">
+        <App />
+      </IntlProvider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.querySelector("#hapt-root")
 );
