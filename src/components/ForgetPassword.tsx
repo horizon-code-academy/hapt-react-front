@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from "react";
+import { ChangeEvent, useState } from "react";
 import { FormattedMessage } from "react-intl";
 import {
   Button,
@@ -9,6 +9,7 @@ import {
   Input,
   Row,
 } from "reactstrap";
+import { Link } from "react-router-dom";
 
 function ForgetPassword() {
   const [email, setEmail] = useState<string>("");
@@ -38,7 +39,7 @@ function ForgetPassword() {
               />
               <FormattedMessage tagName="label" id="login.email" />
             </FormGroup>
-            <Button type="button" color="dark" size="lg">
+            <Button tag={Link} to="/login" type="button" color="dark" size="lg">
               <FormattedMessage id="forget.btn" />
             </Button>
           </Form>

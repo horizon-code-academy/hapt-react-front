@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from "react";
+import { ChangeEvent, useState } from "react";
 import { FormattedMessage } from "react-intl";
 import {
   Button,
@@ -9,6 +9,7 @@ import {
   Input,
   Row,
 } from "reactstrap";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState<string>("");
@@ -67,13 +68,13 @@ function Login() {
                 </FormGroup>
               </Col>
               <Col>
-                <a href="#">
+                <Link to="/forget">
                   <FormattedMessage id="login.forget" />
-                </a>
+                </Link>
               </Col>
             </Row>
 
-            <Button type="button" color="dark" size="lg">
+            <Button tag={Link} to="/" type="button" color="dark" size="lg">
               <FormattedMessage id="login.btn" />
             </Button>
           </Form>

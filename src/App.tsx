@@ -1,13 +1,18 @@
 import React from "react";
 import "./App.css";
+import { Route, Routes } from "react-router-dom";
 import Login from "./components/Login";
-import Forget from "./components/ForgetPassword";
 import Dashboard from "./components/Dashboard";
+import ForgetPassword from "./components/ForgetPassword";
 
 function App() {
-  // return <Login />;
-  // return <Forget />;
-  return <Dashboard />;
+  return (
+    <Routes>
+      <Route path={"/"} element={<Dashboard />} />
+      <Route path={"login"} element={<Login />} />
+      <Route path={"forget"} element={<ForgetPassword />} />
+    </Routes>
+  );
 }
 
 export default App;
