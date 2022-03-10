@@ -60,9 +60,9 @@ function Login() {
                                 </FormGroup>
                             </Col>
                             <Col>
-                                <a href="#">
+                                <Link to={"forget"}>
                                     <FormattedMessage id="login.forget"/>
-                                </a>
+                                </Link>
                             </Col>
                         </Row>
 

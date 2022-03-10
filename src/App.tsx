@@ -3,15 +3,14 @@ import "./App.css";
 import {Route, Routes} from "react-router-dom";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
+import ForgetPassword from "./components/ForgetPassword";
 
 function App() {
-    // return <Login />;
-    // return <Forget />;
-    // <Dashboard />;
     return (
         <Routes>
             <Route path={"/"} element={<Login/>}/>
             <Route path={"/dashboard"} element={<Dashboard/>}/>
+            <Route path={"/forget"} element={<ForgetPassword/>}/>
         </Routes>
     )
 }
