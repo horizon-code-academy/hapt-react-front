@@ -1,4 +1,5 @@
 import { FormattedMessage } from "react-intl";
+import { Routes, Route, Link } from "react-router-dom";
 import {
   Badge,
   Collapse,
@@ -60,7 +61,9 @@ function Dashboard() {
                   ))}
                 </DropdownItem>
                 <DropdownItem>
-                  <FormattedMessage id="profil" />
+                  <Link to="/profil">
+                    <FormattedMessage id="profil" />
+                  </Link>
                 </DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem>
@@ -74,8 +77,11 @@ function Dashboard() {
       <SideBar user={user} />
       <Container fluid>
         <main>
-          <Subjects />
-          {/*<Users />*/}
+          <Routes>
+            <Route path="/" element={<Users />} />
+            <Route path="users" element={<Users />} />
+            <Route path="trainings" element={<Subjects />} />
+          </Routes>
         </main>
       </Container>
     </>

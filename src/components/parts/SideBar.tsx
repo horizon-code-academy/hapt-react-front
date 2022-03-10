@@ -1,4 +1,5 @@
 import { Fragment, useState } from "react";
+import { Link } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
 import { Nav, NavItem, NavLink } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -25,7 +26,7 @@ const routes = [
   },
   {
     key: "trainings",
-    disabled: true,
+    disabled: false,
     icon: faBook,
     access: (roles: string[]): boolean =>
       roles.includes("admin") || roles.includes("teacher"),
@@ -84,7 +85,7 @@ const SideBar = ({ user }: SideBarPropsType) => {
               padding: 16,
             }}
           >
-            Horizon Academy
+            <Link to="/">Horizon Academy</Link>
           </NavLink>
         </NavItem>
         <br />
@@ -101,8 +102,10 @@ const SideBar = ({ user }: SideBarPropsType) => {
                 href="#"
                 onClick={() => setActivePage(e.key)}
               >
-                <FontAwesomeIcon icon={e.icon} style={{ marginRight: 10 }} />
-                <FormattedMessage id={"page." + e.key} />
+                <Link to={"/" + e.key}>
+                  <FontAwesomeIcon icon={e.icon} style={{ marginRight: 10 }} />
+                  <FormattedMessage id={"page." + e.key} />
+                </Link>
               </NavLink>
             </NavItem>
           ) : (
