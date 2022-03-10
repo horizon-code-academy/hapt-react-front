@@ -74,7 +74,7 @@ function Login() {
               </Col>
             </Row>
 
-            <Button tag={Link} to="/" type="button" color="dark" size="lg">
+            <Button tag={Link} to="/users" type="button" color="dark" size="lg">
               <FormattedMessage id="login.btn" />
             </Button>
           </Form>
