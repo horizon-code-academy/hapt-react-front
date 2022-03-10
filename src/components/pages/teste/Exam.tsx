@@ -10,7 +10,7 @@ const Exam = () => {
   return (
     <>
       <div className="d-flex justify-content-between">
-        <FormattedMessage tagName="h1" id="page.title.testss" />
+        <FormattedMessage tagName="h1" id="page.title.tests" />
       </div>
       <Table bordered hover responsive striped>
         <thead>
