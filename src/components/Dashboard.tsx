@@ -19,6 +19,7 @@ import Users from "./pages/users/Users";
 import Subjects from "./pages/subjects/Subjects";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Exam from "./pages/teste/Exam";
 
 const user = {
   firstName: "Malek",
@@ -81,6 +82,7 @@ function Dashboard() {
             <Route path="/" element={<Users />} />
             <Route path="users" element={<Users />} />
             <Route path="trainings" element={<Subjects />} />
+            <Route path="tests" element={<Exam />} />
           </Routes>
         </main>
       </Container>
