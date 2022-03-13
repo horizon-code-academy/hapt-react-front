@@ -9,11 +9,20 @@ import {
   Input,
   Row,
 } from "reactstrap";
-import { Link } from "react-router-dom";
+import { login } from "../actions/auth/action";
 
 function Login(props: any) {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+
+  const submit = () => {
+    login(
+      email,
+      password,
+      () => props.goToDashboard(),
+      () => {}
+    );
+  };
 
   const changeEmail = (e: ChangeEvent<HTMLInputElement>) =>
     setEmail(e.target.value);
@@ -74,12 +83,7 @@ function Login(props: any) {
               </Col>
             </Row>
 
-            <Button
-              type="button"
-              color="dark"
-              size="lg"
-              onClick={props.goToDashboard}
-            >
+            <Button type="button" color="dark" size="lg" onClick={submit}>
               <FormattedMessage id="login.btn" />
             </Button>
           </Form>

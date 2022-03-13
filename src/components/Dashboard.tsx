@@ -35,7 +35,7 @@ function Dashboard(props: any) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/user")
+      .get("http://localhost:5000")
       .then(() => setError(false))
       .catch(() => setError(true));
   });
