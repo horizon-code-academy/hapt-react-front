@@ -16,6 +16,7 @@ import User from "../@types/User";
 import Avatar from "./parts/Avatar";
 import SideBar from "./parts/SideBar";
 import Users from "./pages/users/Users";
+import Sessions from "./pages/sessions/Sessions";
 import Subjects from "./pages/subjects/Subjects";
 import {useEffect, useState} from "react";
 import axios from "axios";
@@ -41,7 +42,7 @@ function Dashboard() {
     });
 
     return error ? (
-        <h1>"error open api" </h1>
+        <h1>"error open api"</h1>
     ) : (
         <>
             <Navbar color="danger" expand="md" light>
@@ -85,6 +86,7 @@ function Dashboard() {
                         <Route path="/" element={<Users/>}/>
                         <Route path="users" element={<Users/>}/>
                         <Route path="trainings" element={<Subjects/>}/>
+                        <Route path="sessions" element={<Sessions/>} />
                     </Routes>
                 </main>
             </Container>

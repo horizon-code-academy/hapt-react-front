@@ -61,7 +61,7 @@ const SubjectAdd = (props: SubjectAddPropsType) => {
         className="mb-2"
         onClick={() => setIsOpened(true)}
       >
-        <FormattedMessage id="page.subjects.add" />{" "}
+        <FormattedMessage id="page.subject.add" />{" "}
         <FontAwesomeIcon icon={faAdd} />
       </Button>
       <Modal
@@ -74,7 +74,7 @@ const SubjectAdd = (props: SubjectAddPropsType) => {
           className="bg-success text-white"
           toggle={() => setIsOpened(!isOpened)}
         >
-          <FormattedMessage id="Subjects.add.dialog.title" />
+          <FormattedMessage id="Subject.add.dialog.title" />
         </ModalHeader>
         <ModalBody>
           <Form inline>

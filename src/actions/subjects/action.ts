@@ -1,7 +1,7 @@
 import axios from "axios";
 import Subject from "../../@types/Subject";
 
-export function getSubjects(callback: (data: Subject[]) => void) {
+export function getSubject(callback: (data: Subject[]) => void) {
   axios
     .get("http://localhost:3000/subject")
     .then(({ data }) => {
@@ -23,7 +23,7 @@ export function addSubject(subject: Subject, callback: () => void) {
     });
 }
 
-export function editSubjects(subject: Subject, callback: () => void) {
+export function editSubject(subject: Subject, callback: () => void) {
   axios
     .put(`http://localhost:3000/subject/${subject._id}`, subject)
     .then(() => {
@@ -34,7 +34,7 @@ export function editSubjects(subject: Subject, callback: () => void) {
     });
 }
 
-export function deleteSubjects(subject: Subject, callback: () => void) {
+export function deleteSubject(subject: Subject, callback: () => void) {
   axios
     .delete(`http://localhost:3000/subject/${subject._id}`)
     .then(() => {

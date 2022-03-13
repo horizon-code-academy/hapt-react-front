@@ -41,5 +41,16 @@
   "button.confirm":"confirmed",
   "button.cancel":"cancel",
   "page.title.subjects":"subjects",
-  "subject.actions":"actions"
+  "subject.actions":"actions",
+  "page.sessions.add":"sessions add",
+  "sessions.add.dialog.title":"add session",
+  "session.name":"sessino name",
+  "session.start_date":"session start date",
+  "session.end_date":"session end date",
+  "session.teacher":"session teacher",
+  "session.students":"session students",
+  "session.subject":"session subject",
+  "sessions.delete.dialog.title":"delete session",
+  "session.actions":"session actions",
+  "page.title.sessions":"session title"
 }

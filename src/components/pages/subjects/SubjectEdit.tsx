@@ -14,7 +14,7 @@ import {
   ModalHeader,
 } from "reactstrap";
 import Subject from "../../../@types/Subject";
-import { editSubjects } from "../../../actions/subjects/action";
+import { editSubject } from "../../../actions/subjects/action";
 
 interface SubjectEditPropsType {
   subject: Subject;
@@ -42,7 +42,7 @@ const SubjectEdit = ({ subject, refresh }: SubjectEditPropsType) => {
       description,
     };
 
-    editSubjects(newSubject, () => {
+    editSubject(newSubject, () => {
       refresh();
       setIsOpened(false);
       reset(newSubject);

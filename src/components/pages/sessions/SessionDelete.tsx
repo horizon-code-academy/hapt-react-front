@@ -3,19 +3,19 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FormattedMessage } from "react-intl";
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
-import Subject from "../../../@types/Subject";
-import { deleteSubject } from "../../../actions/subjects/action";
+import Session from "../../../@types/Session";
+import { deleteSession } from "../../../actions/sessions/action";
 
-interface SubjectDeletePropsType {
-  subject: Subject;
+interface SessionDeletePropsType {
+  session: Session;
   refresh: () => void;
 }
 
-const SubjectDelete = ({ subject, refresh }: SubjectDeletePropsType) => {
+const SessionDelete = ({ session, refresh }: SessionDeletePropsType) => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
 
   const submit = () => {
-    deleteSubject(subject, () => {
+    deleteSession(session, () => {
       refresh();
       setIsOpened(false);
     });
@@ -36,10 +36,10 @@ const SubjectDelete = ({ subject, refresh }: SubjectDeletePropsType) => {
           className="bg-danger text-white"
           toggle={() => setIsOpened(!isOpened)}
         >
-          <FormattedMessage id="subject.delete.dialog.title" />
+          <FormattedMessage id="sessions.delete.dialog.title" />
         </ModalHeader>
         <ModalBody>
-          <FormattedMessage id="subject.delete.dialog.text" /> {subject.label}?
+          <FormattedMessage id="sessions.delete.dialog.text" /> {session.name}?
         </ModalBody>
         <ModalFooter>
           <Button color="danger" onClick={submit}>
@@ -54,4 +54,4 @@ const SubjectDelete = ({ subject, refresh }: SubjectDeletePropsType) => {
   );
 };
 
-export default SubjectDelete;
+export default SessionDelete;

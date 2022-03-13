@@ -40,5 +40,16 @@
   "button.confirm":"confirmer",
   "button.cancel":"annuler",
   "page.title.subjects":"sujets",
-  "subject.actions":"actions"
+  "subject.actions":"actions",
+  "page.sessions.add":"les sessions ajoutent",
+  "sessions.add.dialog.title":"ajouter les sessions",
+  "session.name":"nom de session",
+  "session.start_date":"date de début de session",
+  "session.end_date":"date de fin de session",
+  "session.teacher":"professeur de session",
+  "session.students":"étudiants en session",
+  "session.subject":"sujet de la séance",
+  "sessions.delete.dialog.title":"supprimer la session",
+  "session.actions":"actions",
+  "page.title.sessions":"titre de la session"
 }

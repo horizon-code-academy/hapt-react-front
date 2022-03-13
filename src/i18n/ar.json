@@ -40,5 +40,16 @@
   "button.confirm":"أكد",
   "button.cancel":"لالغاء",
   "page.title.subjects":"المواضيع",
-  "subject.actions":"أجراءات"
+  "subject.actions":"أجراءات",
+  "page.sessions.add":"إضافة جلسات",
+  "sessions.add.dialog.title":"إضافة عنوان الجلسة",
+  "session.name":"اسم الجلسة",
+  "session.start_date":"تاريخ بدء الجلسة",
+  "session.end_date":"تاريخ انتهاء الجلسة",
+  "session.teacher":"مدرس الجلسة",
+  "session.students":"طلاب الدورة",
+  "session.subject":"موضوع الجلسة",
+  "sessions.delete.dialog.title":"حذف عنوان الجلسة",
+  "session.actions":"إجراءات الجلسة",
+  "page.title.sessions":"عنوان الجلسة"
 }
