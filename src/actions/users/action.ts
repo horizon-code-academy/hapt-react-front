@@ -3,7 +3,11 @@ import User from "../../@types/User";
 
 export function getUsers(callback: (data: User[]) => void) {
   axios
-    .get("http://localhost:5000/user")
+    .get("http://localhost:5000/user", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+      },
+    })
     .then(({ data }) => {
       callback(data);
     })

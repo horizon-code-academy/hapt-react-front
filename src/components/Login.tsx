@@ -19,7 +19,10 @@ function Login(props: any) {
     login(
       email,
       password,
-      () => props.goToDashboard(),
+      (data: any) => {
+        localStorage.setItem("access_token", data.access_token);
+        props.goToDashboard();
+      },
       () => {}
     );
   };
