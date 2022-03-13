@@ -11,7 +11,7 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 
-function Login() {
+function Login(props: any) {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
@@ -68,13 +68,18 @@ function Login() {
                 </FormGroup>
               </Col>
               <Col>
-                <Link to="/forget">
+                <span onClick={props.goToForget}>
                   <FormattedMessage id="login.forget" />
-                </Link>
+                </span>
               </Col>
             </Row>
 
-            <Button tag={Link} to="/users" type="button" color="dark" size="lg">
+            <Button
+              type="button"
+              color="dark"
+              size="lg"
+              onClick={props.goToDashboard}
+            >
               <FormattedMessage id="login.btn" />
             </Button>
           </Form>

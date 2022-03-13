@@ -28,7 +28,7 @@ const user = {
   avatar: "https://avatars.githubusercontent.com/u/22925467?s=40&v=4",
 } as User;
 
-function Dashboard() {
+function Dashboard(props: any) {
   const [error, setError] = useState<boolean>(false);
 
   const navigate = useNavigate();
@@ -41,7 +41,7 @@ function Dashboard() {
   });
 
   return error ? (
-    <h1>"error open api" </h1>
+    <h1>Error open API</h1>
   ) : (
     <>
       <Navbar color="danger" expand="md" light>
@@ -69,7 +69,12 @@ function Dashboard() {
                   </Link>
                 </DropdownItem>
                 <DropdownItem divider />
-                <DropdownItem onClick={() => navigate("/")}>
+                <DropdownItem
+                  onClick={() => {
+                    props.goToLogin();
+                    navigate("/");
+                  }}
+                >
                   <FormattedMessage id="logout" />
                 </DropdownItem>
               </DropdownMenu>
@@ -81,6 +86,7 @@ function Dashboard() {
       <Container fluid>
         <main>
           <Routes>
+            <Route path="" element={<Users />} />
             <Route path="users" element={<Users />} />
             <Route path="trainings" element={<Subjects />} />
             <Route path="tests" element={<Exam />} />
