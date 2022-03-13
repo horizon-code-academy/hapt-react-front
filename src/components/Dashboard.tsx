@@ -17,8 +17,6 @@ import Avatar from "./parts/Avatar";
 import SideBar from "./parts/SideBar";
 import Users from "./pages/users/Users";
 import Subjects from "./pages/subjects/Subjects";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import Exam from "./pages/teste/Exam";
 
 const user = {
@@ -29,20 +27,9 @@ const user = {
 } as User;
 
 function Dashboard(props: any) {
-  const [error, setError] = useState<boolean>(false);
-
   const navigate = useNavigate();
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:5000")
-      .then(() => setError(false))
-      .catch(() => setError(true));
-  });
-
-  return error ? (
-    <h1>Error open API</h1>
-  ) : (
+  return (
     <>
       <Navbar color="danger" expand="md" light>
         <NavbarToggler onClick={function noRefCheck() {}} />
