@@ -72,6 +72,7 @@ function Dashboard(props: any) {
             <Route path="users" element={<Users />} />
             <Route path="trainings" element={<Subjects />} />
             <Route path="tests" element={<Exam />} />
+            <Route path="session" element={<SessionA />} />
           </Routes>
         </main>
       </Container>
