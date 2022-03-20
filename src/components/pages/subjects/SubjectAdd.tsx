@@ -19,12 +19,19 @@ interface SubjectAddPropsType {
   refresh: () => void;
 }
 
+const fields = [
+  { key: "it", name: "IT" },
+  { key: "finance", name: "Finance" },
+  { key: "art", name: "Art" },
+  { key: "langues", name: "Langues" },
+];
+
 const SubjectAdd = (props: SubjectAddPropsType) => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
 
   // form states
   const [label, setLabel] = useState<string>("");
-  const [field, setField] = useState<string>("");
+  const [field, setField] = useState<string>(fields[0].key);
   const [nb_hour, setNbHour] = useState<number>(0);
   const [price_hour, setPriceHour] = useState<number>(0);
   const [description, setDescription] = useState<string | undefined>("");
@@ -98,10 +105,11 @@ const SubjectAdd = (props: SubjectAddPropsType) => {
                 type="select"
                 onChange={(e) => setField(e.target.value)}
               >
-                <option value="it">IT</option>
-                <option value="finance">Finance</option>
-                <option value="art">Art</option>
-                <option value="lang">Langue</option>
+                {fields.map((f) => (
+                  <option key={f.key} value={f.key}>
+                    {f.name}
+                  </option>
+                ))}
               </Input>
               <Label for="field">
                 <FormattedMessage id="subject.field" />
@@ -113,6 +121,7 @@ const SubjectAdd = (props: SubjectAddPropsType) => {
                 id="nb_hour"
                 name="nb_hour"
                 type="number"
+                onChange={(e) => setNbHour(Number.parseInt(e.target.value))}
               />
               <Label for="nb_hour">
                 <FormattedMessage id="subject.nb_hour" />
@@ -124,6 +133,7 @@ const SubjectAdd = (props: SubjectAddPropsType) => {
                 id="price_hour"
                 name="price_hour"
                 type="number"
+                onChange={(e) => setPriceHour(Number.parseInt(e.target.value))}
               />
               <Label for="price_hour">
                 <FormattedMessage id="subject.price_hour" />
