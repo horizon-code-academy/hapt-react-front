@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { FormattedMessage } from "react-intl";
 import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import {
@@ -12,24 +13,18 @@ import {
   NavbarToggler,
   UncontrolledDropdown,
 } from "reactstrap";
-import User from "../@types/User";
 import Avatar from "./parts/Avatar";
 import SideBar from "./parts/SideBar";
 import Users from "./pages/users/Users";
 import Subjects from "./pages/subjects/Subjects";
 import Exam from "./pages/teste/Exam";
-
-const user = {
-  firstName: "Malek",
-  lastName: "Boubakri",
-  roles: ["admin", "teacher"],
-  avatar: "https://avatars.githubusercontent.com/u/22925467?s=40&v=4",
-} as User;
+import { UserContext } from "../context/user-context";
 
 function Dashboard(props: any) {
   const navigate = useNavigate();
+  const { user, isLoading } = useContext(UserContext);
 
-  return (
+  return user && !isLoading ? (
     <>
       <Navbar color="danger" expand="md" light>
         <NavbarToggler onClick={function noRefCheck() {}} />
@@ -81,6 +76,8 @@ function Dashboard(props: any) {
         </main>
       </Container>
     </>
+  ) : (
+    <>Loading...</>
   );
 }
 
