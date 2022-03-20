@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FormattedMessage } from "react-intl";
 import { ButtonGroup, Table } from "reactstrap";
 import SubjectEdit from "./SubjectEdit";
@@ -11,6 +11,10 @@ import { getSubjects } from "../../../actions/subjects/action";
 
 const Subjects = () => {
   const [subjects, setSubjects] = useState<Subject[]>([]);
+
+  useEffect(() => {
+    getSubjects(setSubjects); // aka setSubjects(data)
+  }, []);
   return (
     <>
       <div className="d-flex justify-content-between">

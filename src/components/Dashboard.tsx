@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { FormattedMessage } from "react-intl";
 import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import {
@@ -12,38 +13,18 @@ import {
   NavbarToggler,
   UncontrolledDropdown,
 } from "reactstrap";
-import User from "../@types/User";
 import Avatar from "./parts/Avatar";
 import SideBar from "./parts/SideBar";
 import Users from "./pages/users/Users";
 import Subjects from "./pages/subjects/Subjects";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import Exam from "./pages/teste/Exam";
-import SessionA from "./pages/session/SessionA";
+import { UserContext } from "../context/user-context";
 
-const user = {
-  firstName: "Malek",
-  lastName: "Boubakri",
-  roles: ["admin", "teacher"],
-  avatar: "https://avatars.githubusercontent.com/u/22925467?s=40&v=4",
-} as User;
-
-function Dashboard() {
-  const [error, setError] = useState<boolean>(false);
-
+function Dashboard(props: any) {
   const navigate = useNavigate();
+  const { user, isLoading } = useContext(UserContext);
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:3000/user")
-      .then(() => setError(false))
-      .catch(() => setError(true));
-  });
-
-  return error ? (
-    <h1>"error open api" </h1>
-  ) : (
+  return user && !isLoading ? (
     <>
       <Navbar color="danger" expand="md" light>
         <NavbarToggler onClick={function noRefCheck() {}} />
@@ -70,7 +51,12 @@ function Dashboard() {
                   </Link>
                 </DropdownItem>
                 <DropdownItem divider />
-                <DropdownItem onClick={() => navigate("/")}>
+                <DropdownItem
+                  onClick={() => {
+                    props.goToLogin();
+                    navigate("/");
+                  }}
+                >
                   <FormattedMessage id="logout" />
                 </DropdownItem>
               </DropdownMenu>
@@ -82,7 +68,7 @@ function Dashboard() {
       <Container fluid>
         <main>
           <Routes>
-            <Route path="/" element={<Users />} />
+            <Route path="" element={<Users />} />
             <Route path="users" element={<Users />} />
             <Route path="trainings" element={<Subjects />} />
             <Route path="tests" element={<Exam />} />
@@ -91,6 +77,8 @@ function Dashboard() {
         </main>
       </Container>
     </>
+  ) : (
+    <>Loading...</>
   );
 }
 

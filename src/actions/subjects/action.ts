@@ -3,7 +3,7 @@ import Subject from "../../@types/Subject";
 
 export function getSubjects(callback: (data: Subject[]) => void) {
   axios
-    .get("http://localhost:3000/subject")
+    .get("http://localhost:5000/subject")
     .then(({ data }) => {
       callback(data);
     })
@@ -14,7 +14,7 @@ export function getSubjects(callback: (data: Subject[]) => void) {
 
 export function addSubject(subject: Subject, callback: () => void) {
   axios
-    .post("http://localhost:3000/subject", subject)
+    .post("http://localhost:5000/subject", subject)
     .then(() => {
       callback();
     })
@@ -25,7 +25,7 @@ export function addSubject(subject: Subject, callback: () => void) {
 
 export function editSubjects(subject: Subject, callback: () => void) {
   axios
-    .put(`http://localhost:3000/subject/${subject._id}`, subject)
+    .put(`http://localhost:5000/subject/${subject._id}`, subject)
     .then(() => {
       callback();
     })
@@ -36,7 +36,7 @@ export function editSubjects(subject: Subject, callback: () => void) {
 
 export function deleteSubjects(subject: Subject, callback: () => void) {
   axios
-    .delete(`http://localhost:3000/subject/${subject._id}`)
+    .delete(`http://localhost:5000/subject/${subject._id}`)
     .then(() => {
       callback();
     })

@@ -11,7 +11,7 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 
-function ForgetPassword() {
+function ForgetPassword(props: any) {
   const [email, setEmail] = useState<string>("");
 
   const changeEmail = (e: ChangeEvent<HTMLInputElement>) =>
@@ -39,7 +39,12 @@ function ForgetPassword() {
               />
               <FormattedMessage tagName="label" id="login.email" />
             </FormGroup>
-            <Button tag={Link} to="/login" type="button" color="dark" size="lg">
+            <Button
+              type="button"
+              color="dark"
+              size="lg"
+              onClick={props.goToLogin}
+            >
               <FormattedMessage id="forget.btn" />
             </Button>
           </Form>

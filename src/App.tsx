@@ -1,17 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
 import ForgetPassword from "./components/ForgetPassword";
 
 function App() {
-  return (
-    <Routes>
-      <Route path={"/"} element={<Dashboard />} />
-      <Route path={"login"} element={<Login />} />
-      <Route path={"forget"} element={<ForgetPassword />} />
-    </Routes>
+  const [isLogin, setIsLogin] = useState<boolean>(true);
+  const [isForget, setIsForget] = useState<boolean>(false);
+
+  return isLogin ? (
+    <Login
+      goToForget={() => {
+        setIsForget(true);
+        setIsLogin(false);
+      }}
+      goToDashboard={() => {
+        setIsForget(false);
+        setIsLogin(false);
+      }}
+    />
+  ) : isForget ? (
+    <ForgetPassword
+      goToLogin={() => {
+        setIsForget(false);
+        setIsLogin(true);
+      }}
+    />
+  ) : (
+    <Dashboard
+      goToLogin={() => {
+        setIsForget(false);
+        setIsLogin(true);
+      }}
+    />
   );
 }
 

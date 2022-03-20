@@ -9,11 +9,23 @@ import {
   Input,
   Row,
 } from "reactstrap";
-import { Link } from "react-router-dom";
+import { login } from "../actions/auth/action";
 
-function Login() {
+function Login(props: any) {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+
+  const submit = () => {
+    login(
+      email,
+      password,
+      (data: any) => {
+        localStorage.setItem("access_token", data.access_token);
+        props.goToDashboard();
+      },
+      () => {}
+    );
+  };
 
   const changeEmail = (e: ChangeEvent<HTMLInputElement>) =>
     setEmail(e.target.value);
@@ -68,13 +80,13 @@ function Login() {
                 </FormGroup>
               </Col>
               <Col>
-                <Link to="/forget">
+                <span onClick={props.goToForget}>
                   <FormattedMessage id="login.forget" />
-                </Link>
+                </span>
               </Col>
             </Row>
 
-            <Button tag={Link} to="/" type="button" color="dark" size="lg">
+            <Button type="button" color="dark" size="lg" onClick={submit}>
               <FormattedMessage id="login.btn" />
             </Button>
           </Form>
