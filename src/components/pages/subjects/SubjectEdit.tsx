@@ -20,6 +20,14 @@ interface SubjectEditPropsType {
   subject: Subject;
   refresh: () => void;
 }
+
+const fields = [
+  { key: "it", name: "IT" },
+  { key: "finance", name: "Finance" },
+  { key: "art", name: "Art" },
+  { key: "langues", name: "Langues" },
+];
+
 const SubjectEdit = ({ subject, refresh }: SubjectEditPropsType) => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
 
@@ -33,8 +41,7 @@ const SubjectEdit = ({ subject, refresh }: SubjectEditPropsType) => {
   );
 
   const submit = () => {
-    const newSubject = {
-      _id: subject._id,
+    const editSubject = {
       label,
       field,
       nb_hour,
@@ -42,19 +49,19 @@ const SubjectEdit = ({ subject, refresh }: SubjectEditPropsType) => {
       description,
     };
 
-    editSubjects(newSubject, () => {
+    editSubjects(editSubject, () => {
       refresh();
       setIsOpened(false);
-      reset(newSubject);
+      reset();
     });
   };
 
-  const reset = (subject: Subject) => {
-    setLabel(subject.label);
-    setField(subject.field);
-    setNbHour(subject.nb_hour);
-    setPriceHour(subject.price_hour);
-    setDescription(subject.description);
+  const reset = () => {
+    setLabel("");
+    setField("");
+    setNbHour(0);
+    setPriceHour(0);
+    setDescription("");
   };
 
   return (
@@ -80,11 +87,18 @@ const SubjectEdit = ({ subject, refresh }: SubjectEditPropsType) => {
               </Label>
             </FormGroup>
             <FormGroup floating>
-              <Input value={field} id="field" name="field" type="select">
-                <option value="it">IT</option>
-                <option value="finance">Finance</option>
-                <option value="art">Art</option>
-                <option value="lang">Langue</option>
+              <Input
+                value={field}
+                id="field"
+                name="field"
+                type="select"
+                onChange={(e) => setField(e.target.value)}
+              >
+                {fields.map((f) => (
+                  <option key={f.key} value={f.key}>
+                    {f.name}
+                  </option>
+                ))}
               </Input>
               <Label for="field">
                 <FormattedMessage id="subject.field" />
@@ -96,6 +110,7 @@ const SubjectEdit = ({ subject, refresh }: SubjectEditPropsType) => {
                 id="nb_hour"
                 name="nb_hour"
                 type="number"
+                onChange={(e) => setNbHour(Number.parseInt(e.target.value))}
               />
               <Label for="nb_hour">
                 <FormattedMessage id="subject.nb_hour" />
@@ -107,6 +122,7 @@ const SubjectEdit = ({ subject, refresh }: SubjectEditPropsType) => {
                 id="price_hour"
                 name="price_hour"
                 type="number"
+                onChange={(e) => setPriceHour(Number.parseInt(e.target.value))}
               />
               <Label for="price_hour">
                 <FormattedMessage id="subject.price_hour" />
@@ -118,6 +134,7 @@ const SubjectEdit = ({ subject, refresh }: SubjectEditPropsType) => {
                 id="description"
                 name="description"
                 type="text"
+                onChange={(e) => setDescription(e.target.value)}
               />
               <Label for="description">
                 <FormattedMessage id="subject.description" />
