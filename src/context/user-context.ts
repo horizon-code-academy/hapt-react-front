@@ -8,16 +8,16 @@ const user = {
   avatar: "https://avatars.githubusercontent.com/u/22925467?s=40&v=4",
 } as User;
 
-export interface UserContextData {
+export interface UserContextType {
   user?: User;
   isLoading: boolean;
 }
 
-export const UserContextDefaultValue: UserContextData = {
+export const UserContextDefaultValue: UserContextType = {
   user: user,
   isLoading: false,
 };
 
-export const UserContext = createContext<UserContextData>(
+export const UserContext = createContext<UserContextType>(
   UserContextDefaultValue
 );
