@@ -18,9 +18,8 @@ import SideBar from "./parts/SideBar";
 import Users from "./pages/users/Users";
 import Subjects from "./pages/subjects/Subjects";
 import Exams from "./pages/exams/Exams";
-import Sessions from "./pages/session/Sessions";
+import Sessions from "./pages/sessions/Sessions";
 import { UserContext } from "../context/user-context";
-import SessionA from "./pages/sessions/Sessions";
 
 function Dashboard(props: any) {
   const navigate = useNavigate();
@@ -74,7 +73,7 @@ function Dashboard(props: any) {
             <Route path="users" element={<Users />} />
             <Route path="trainings" element={<Subjects />} />
             <Route path="tests" element={<Exams />} />
-            <Route path="session" element={<Sessions />} />
+            <Route path="sessions" element={<Sessions />} />
           </Routes>
         </main>
       </Container>
