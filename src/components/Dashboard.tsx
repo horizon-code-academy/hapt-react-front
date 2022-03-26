@@ -17,7 +17,8 @@ import Avatar from "./parts/Avatar";
 import SideBar from "./parts/SideBar";
 import Users from "./pages/users/Users";
 import Subjects from "./pages/subjects/Subjects";
-import Exam from "./pages/teste/Exam";
+import Exams from "./pages/exams/Exams";
+import Sessions from "./pages/session/Sessions";
 import { UserContext } from "../context/user-context";
 
 function Dashboard(props: any) {
@@ -71,8 +72,8 @@ function Dashboard(props: any) {
             <Route path="" element={<Users />} />
             <Route path="users" element={<Users />} />
             <Route path="trainings" element={<Subjects />} />
-            <Route path="tests" element={<Exam />} />
-            <Route path="session" element={<SessionA />} />
+            <Route path="tests" element={<Exams />} />
+            <Route path="session" element={<Sessions />} />
           </Routes>
         </main>
       </Container>

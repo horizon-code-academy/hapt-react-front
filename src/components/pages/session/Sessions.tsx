@@ -5,7 +5,7 @@ import Session from "../../../@types/Session";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBoxOpen } from "@fortawesome/free-solid-svg-icons";
 
-const SessionA = () => {
+const Sessions = () => {
   const [sessionn] = useState<Session[]>([]);
   return (
     <>
@@ -62,4 +62,4 @@ const SessionA = () => {
   );
 };
 
-export default SessionA;
+export default Sessions;

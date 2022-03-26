@@ -5,7 +5,7 @@ import { FormattedMessage } from "react-intl";
 import { Table } from "reactstrap";
 import Tests from "../../../@types/Tests";
 
-const Exam = () => {
+const Exams = () => {
   const [testss] = useState<Tests[]>([]);
   return (
     <>
@@ -54,4 +54,4 @@ const Exam = () => {
   );
 };
 
-export default Exam;
+export default Exams;
