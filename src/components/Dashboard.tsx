@@ -20,6 +20,7 @@ import Subjects from "./pages/subjects/Subjects";
 import Exams from "./pages/exams/Exams";
 import Sessions from "./pages/session/Sessions";
 import { UserContext } from "../context/user-context";
+import SessionA from "./pages/sessions/Sessions";
 
 function Dashboard(props: any) {
   const navigate = useNavigate();

@@ -55,5 +55,14 @@
   "user.address":"Address",
   "users.edit.dialog.title":"Edit User",
   "users.delete.dialog.title":"Delete User",
-  "users.delete.dialog.text":"do you want to delete"
+  "users.delete.dialog.text":"do you want to delete",
+  "page.title.session":"Sessions",
+  "session.label":"Label",
+  "session.start_date":"Start_Date",
+  "session.end_date":"End_Date",
+  "session.teacher":"Teacher",
+  "session.students":"Students",
+  "session.subject":"Subject",
+  "page.session.add":"Add Session",
+  "Session.add.dialog.title":"Session Add"
 }
