@@ -1,3 +1,4 @@
+import { faAdd } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { FormattedMessage } from "react-intl";
@@ -21,11 +22,11 @@ const SessionAdd = (props: SessionAddPropsType) => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
 
   const [label, setLabel] = useState<string>("");
-  const [start_date, setStartDate] = useState<string>();
-  const [end_date, setEndDate] = useState<string>();
-  const [teacher, setTeacher] = useState<string>();
-  const [students, setStudents] = useState<string>("");
-  const [subject, setSubject] = useState<string>("");
+  const [start_date, setStartDate] = useState<string>("");
+  const [end_date, setEndDate] = useState<string>("");
+  const [teacher, setTeacher] = useState<string | undefined>();
+  const [students, setStudents] = useState<string[] | undefined>([]);
+  const [subject, setSubject] = useState<string | undefined>();
 
   const submit = () => {
     const newSession = {
@@ -48,9 +49,9 @@ const SessionAdd = (props: SessionAddPropsType) => {
     setLabel("");
     setStartDate("");
     setEndDate("");
-    setTeacher("");
-    setStudents("");
-    setSubject("");
+    setTeacher(undefined);
+    setStudents(undefined);
+    setSubject(undefined);
   };
   return (
     <>
@@ -86,61 +87,67 @@ const SessionAdd = (props: SessionAddPropsType) => {
                 onChange={(e) => setLabel(e.target.value)}
               />
               <Label for="label">
-                <FormattedMessage id="subject.label" />
+                <FormattedMessage id="session.label" />
               </Label>
             </FormGroup>
             <FormGroup floating>
               <Input
-                value={field}
-                id="field"
-                name="field"
-                type="select"
-                onChange={(e) => setField(e.target.value)}
-              >
-                {fields.map((f) => (
-                  <option key={f.key} value={f.key}>
-                    {f.name}
-                  </option>
-                ))}
-              </Input>
+                value={start_date}
+                id="start_date"
+                name="start_date"
+                type="date"
+                onChange={(e) => setStartDate(e.target.value)}
+              ></Input>
               <Label for="field">
-                <FormattedMessage id="subject.field" />
+                <FormattedMessage id="session.start_date" />
               </Label>
             </FormGroup>
             <FormGroup floating>
               <Input
-                value={nb_hour}
-                id="nb_hour"
-                name="nb_hour"
-                type="number"
-                onChange={(e) => setNbHour(Number.parseInt(e.target.value))}
+                value={end_date}
+                id="end_date"
+                name="end_date"
+                type="date"
+                onChange={(e) => setEndDate(e.target.value)}
               />
-              <Label for="nb_hour">
-                <FormattedMessage id="subject.nb_hour" />
+              <Label for="end_date">
+                <FormattedMessage id="session.end_date" />
               </Label>
             </FormGroup>
             <FormGroup floating>
               <Input
-                value={price_hour}
-                id="price_hour"
-                name="price_hour"
-                type="number"
-                onChange={(e) => setPriceHour(Number.parseInt(e.target.value))}
-              />
-              <Label for="price_hour">
-                <FormattedMessage id="subject.price_hour" />
-              </Label>
-            </FormGroup>
-            <FormGroup floating>
-              <Input
-                value={description}
-                id="description"
-                name="description"
+                value={teacher}
+                id="teacher"
+                name="teacher"
                 type="text"
-                onChange={(e) => setDescription(e.target.value)}
+                onChange={(e) => setTeacher}
               />
-              <Label for="description">
-                <FormattedMessage id="subject.description" />
+              <Label for="teacher">
+                <FormattedMessage id="session.teacher" />
+              </Label>
+            </FormGroup>
+            <FormGroup floating>
+              <Input
+                value={students}
+                id="students"
+                name="students"
+                type="select"
+                onChange={(e) => setStudents}
+              />
+              <Label for="students">
+                <FormattedMessage id="session.students" />
+              </Label>
+            </FormGroup>
+            <FormGroup floating>
+              <Input
+                value={subject}
+                id="subject"
+                name="subject"
+                type="select"
+                onChange={(e) => setSubject}
+              />
+              <Label for="subject">
+                <FormattedMessage id="session.subject" />
               </Label>
             </FormGroup>
           </Form>
@@ -158,4 +165,4 @@ const SessionAdd = (props: SessionAddPropsType) => {
   );
 };
 
-export default SubjectAdd;
+export default SessionAdd;

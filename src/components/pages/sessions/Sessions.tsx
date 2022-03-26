@@ -1,16 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FormattedMessage } from "react-intl";
 import { Table } from "reactstrap";
 import Session from "../../../@types/Session";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBoxOpen } from "@fortawesome/free-solid-svg-icons";
+import SessionAdd from "./SessionAdd";
+import { getSessions } from "../../../actions/sessions/action";
 
 const SessionA = () => {
-  const [sessionn] = useState<Session[]>([]);
+  const [sessions, setSessions] = useState<Session[]>([]);
+
+  useEffect(() => {
+    getSessions(setSessions); // aka setSessions(data)
+  }, []);
+
   return (
     <>
       <div className="d-flex justify-content-between">
         <FormattedMessage tagName="h1" id="page.title.session" />
+        <SessionAdd refresh={() => getSessions(setSessions)} />
       </div>
       <Table bordered hover responsive striped>
         <thead>
@@ -36,8 +44,8 @@ const SessionA = () => {
           </tr>
         </thead>
         <tbody>
-          {sessionn.length ? (
-            sessionn.map((session, i) => (
+          {sessions.length ? (
+            sessions.map((session, i) => (
               <tr key={i}>
                 <td scope="row">{session.label}</td>
                 <td>{session.start_date}</td>
@@ -49,7 +57,7 @@ const SessionA = () => {
             ))
           ) : (
             <tr>
-              <td colSpan={5} className="text-center p-5">
+              <td colSpan={6} className="text-center p-5">
                 <FontAwesomeIcon icon={faBoxOpen} size="4x" />
                 <br />
                 <FormattedMessage id="page.users.no-data" />

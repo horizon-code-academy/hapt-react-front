@@ -12,7 +12,7 @@ export function getSessions(callback: (data: Session[]) => void) {
     });
 }
 
-export function addSession(session: Session, callback: () => void) {
+export function addSession(session: any, callback: () => void) {
   axios
     .post("http://localhost:5000/session", session)
     .then(() => {
