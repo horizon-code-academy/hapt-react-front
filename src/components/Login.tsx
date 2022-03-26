@@ -15,7 +15,8 @@ function Login(props: any) {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  const submit = () => {
+  const submit = (e: any) => {
+    e.preventDefault();
     login(
       email,
       password,
@@ -44,7 +45,7 @@ function Login(props: any) {
         >
           <FormattedMessage tagName="h1" id="login.title" />
           <FormattedMessage tagName="p" id="login.subtitle" />
-          <Form>
+          <Form onSubmit={submit}>
             <FormGroup floating className="mb-3">
               <Input
                 type="email"
@@ -86,7 +87,7 @@ function Login(props: any) {
               </Col>
             </Row>
 
-            <Button type="button" color="dark" size="lg" onClick={submit}>
+            <Button type="submit" color="dark" size="lg">
               <FormattedMessage id="login.btn" />
             </Button>
           </Form>
