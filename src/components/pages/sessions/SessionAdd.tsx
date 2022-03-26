@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { faAdd } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
@@ -14,12 +15,20 @@ import {
   ModalHeader,
 } from "reactstrap";
 import { addSession } from "../../../actions/sessions/action";
+import { getSubjects } from "../../../actions/subjects/action";
+import { getUsers } from "../../../actions/users/action";
+import User from "../../../@types/User";
+import Subject from "../../../@types/Subject";
 
 interface SessionAddPropsType {
   refresh: () => void;
 }
 const SessionAdd = (props: SessionAddPropsType) => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
+
+  const [teacherList, setTeacherList] = useState<User[] | undefined>([]);
+  const [studentList, setStudentList] = useState<User[] | undefined>([]);
+  const [subjectList, setSubjectList] = useState<Subject[] | undefined>([]);
 
   const [label, setLabel] = useState<string>("");
   const [start_date, setStartDate] = useState<string>("");
@@ -53,6 +62,17 @@ const SessionAdd = (props: SessionAddPropsType) => {
     setStudents(undefined);
     setSubject(undefined);
   };
+
+  useEffect(() => {
+    getSubjects(setSubjectList);
+    getUsers((users) =>
+      setTeacherList(users.filter((u) => u.roles.includes("teacher")))
+    );
+    getUsers((users) =>
+      setStudentList(users.filter((u) => u.roles.includes("student")))
+    );
+  }, []);
+
   return (
     <>
       <Button
@@ -119,9 +139,15 @@ const SessionAdd = (props: SessionAddPropsType) => {
                 value={teacher}
                 id="teacher"
                 name="teacher"
-                type="text"
+                type="select"
                 onChange={(e) => setTeacher}
-              />
+              >
+                {teacherList?.map((t) => (
+                  <option key={t._id} value={t._id}>
+                    {t.firstName + ` ` + t.lastName}
+                  </option>
+                ))}
+              </Input>
               <Label for="teacher">
                 <FormattedMessage id="session.teacher" />
               </Label>
@@ -133,7 +159,13 @@ const SessionAdd = (props: SessionAddPropsType) => {
                 name="students"
                 type="select"
                 onChange={(e) => setStudents}
-              />
+              >
+                {studentList?.map((s) => (
+                  <option key={s._id} value={s._id}>
+                    {s.firstName + ` ` + s.lastName}
+                  </option>
+                ))}
+              </Input>
               <Label for="students">
                 <FormattedMessage id="session.students" />
               </Label>
@@ -145,7 +177,13 @@ const SessionAdd = (props: SessionAddPropsType) => {
                 name="subject"
                 type="select"
                 onChange={(e) => setSubject}
-              />
+              >
+                {subjectList?.map((s) => (
+                  <option key={s._id} value={s._id}>
+                    {s.label}
+                  </option>
+                ))}
+              </Input>
               <Label for="subject">
                 <FormattedMessage id="session.subject" />
               </Label>
