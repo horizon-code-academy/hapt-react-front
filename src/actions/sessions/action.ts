@@ -25,7 +25,7 @@ export function addSession(session: any, callback: () => void) {
 
 export function editSessions(session: Session, callback: () => void) {
   axios
-    .put(`http://localhost:5000/session/${session}`, session)
+    .put(`http://localhost:5000/session/${session._id}`, session)
     .then(() => {
       callback();
     })
@@ -36,7 +36,7 @@ export function editSessions(session: Session, callback: () => void) {
 
 export function deleteSessions(session: Session, callback: () => void) {
   axios
-    .delete(`http://localhost:5000/session/${session}`)
+    .delete(`http://localhost:5000/session/${session._id}`)
     .then(() => {
       callback();
     })
