@@ -7,15 +7,15 @@ import Exam from "../../../@types/Exam";
 import { deleteExams } from "../../../actions/exams/action";
 
 interface ExamDeletePropsType {
-  exam: Exam;
+  exams: Exam;
   refresh: () => void;
 }
 
-const ExamDelete = ({ exam, refresh }: ExamDeletePropsType) => {
+const ExamDelete = ({ exams, refresh }: ExamDeletePropsType) => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
 
   const submit = () => {
-    deleteExams(exam, () => {
+    deleteExams(exams, () => {
       refresh();
       setIsOpened(false);
     });
@@ -39,7 +39,7 @@ const ExamDelete = ({ exam, refresh }: ExamDeletePropsType) => {
           <FormattedMessage id="exams.delete.dialog.title" />
         </ModalHeader>
         <ModalBody>
-          <FormattedMessage id="exams.delete.dialog.text" /> {exam.label}?
+          <FormattedMessage id="exams.delete.dialog.text" /> {exams.exam}?
         </ModalBody>
         <ModalFooter>
           <Button color="danger" onClick={submit}>

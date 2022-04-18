@@ -23,19 +23,19 @@ interface ExamEditPropsType {
   refresh: () => void;
 }
 
-const ExamEdit = ({ exam, refresh }: ExamEditPropsType) => {
+const ExamEdit = ({ exams, refresh }: ExamEditPropsType) => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
 
   const [studentList, setStudentList] = useState<User[] | undefined>();
 
-  const [label, setLabel] = useState<string>(exam.label);
-  const [score, setScore] = useState<number>(exam.score);
-  const [note, setNote] = useState<number>(exam.note);
+  const [exam, setExam] = useState<string>(exams.exam);
+  const [score, setScore] = useState<number>(exams.score);
+  const [note, setNote] = useState<number>(exams.note);
   const [students, setStudents] = useState<string[] | undefined>();
 
   const submit = () => {
     const editexam = {
-      label,
+      exam,
       score,
       note,
       students,
@@ -49,7 +49,7 @@ const ExamEdit = ({ exam, refresh }: ExamEditPropsType) => {
   };
 
   const reset = () => {
-    setLabel("");
+    setExam("");
     setScore(0);
     setNote(0);
     setStudents(undefined);
@@ -72,20 +72,20 @@ const ExamEdit = ({ exam, refresh }: ExamEditPropsType) => {
         toggle={() => setIsOpened(!isOpened)}
       >
         <ModalHeader className="bg-warning" toggle={() => setIsOpened(false)}>
-          <FormattedMessage id="Sessions.edit.dialog.title" />
+          <FormattedMessage id="exam.edit.dialog.title" />
         </ModalHeader>
         <ModalBody>
           <Form inline>
             <FormGroup floating>
               <Input
-                value={label}
-                id="label"
-                name="label"
+                value={exam}
+                id="exam"
+                name="exam"
                 type="text"
-                onChange={(e) => setLabel(e.target.value)}
+                onChange={(e) => setExam(e.target.value)}
               />
-              <Label for="label">
-                <FormattedMessage id="exam.label" />
+              <Label for="exam">
+                <FormattedMessage id="tests.exam" />
               </Label>
             </FormGroup>
             <FormGroup floating>
@@ -97,7 +97,7 @@ const ExamEdit = ({ exam, refresh }: ExamEditPropsType) => {
                 onChange={(e) => setScore(Number.parseInt(e.target.value))}
               />
               <Label for="score">
-                <FormattedMessage id="exam.score" />
+                <FormattedMessage id="tests.score" />
               </Label>
             </FormGroup>
             <FormGroup floating>
@@ -109,7 +109,7 @@ const ExamEdit = ({ exam, refresh }: ExamEditPropsType) => {
                 onChange={(e) => setNote(Number.parseInt(e.target.value))}
               />
               <Label for="note">
-                <FormattedMessage id="exam.note" />
+                <FormattedMessage id="tests.note" />
               </Label>
             </FormGroup>
             <FormGroup floating>
@@ -127,7 +127,7 @@ const ExamEdit = ({ exam, refresh }: ExamEditPropsType) => {
                 ))}
               </Input>
               <Label for="students">
-                <FormattedMessage id="exam.students" />
+                <FormattedMessage id="tests.students" />
               </Label>
             </FormGroup>
           </Form>

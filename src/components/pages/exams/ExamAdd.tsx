@@ -65,8 +65,7 @@ const ExamAdd = (props: ExamAddPropsType) => {
         className="mb-2"
         onClick={() => setIsOpened(true)}
       >
-        <FormattedMessage id="page.session.add" />{" "}
-        <FontAwesomeIcon icon={faAdd} />
+        <FormattedMessage id="page.exam.add" /> <FontAwesomeIcon icon={faAdd} />
       </Button>
       <Modal
         centered
@@ -78,7 +77,7 @@ const ExamAdd = (props: ExamAddPropsType) => {
           className="bg-success text-white"
           toggle={() => setIsOpened(!isOpened)}
         >
-          <FormattedMessage id="Session.add.dialog.title" />
+          <FormattedMessage id="exam.add.dialog.title" />
         </ModalHeader>
         <ModalBody>
           <Form inline>
@@ -91,7 +90,7 @@ const ExamAdd = (props: ExamAddPropsType) => {
                 onChange={(e) => setExam(e.target.value)}
               />
               <Label for="exam">
-                <FormattedMessage id="exam.exam" />
+                <FormattedMessage id="tests.exam" />
               </Label>
             </FormGroup>
             <FormGroup floating>
@@ -103,7 +102,7 @@ const ExamAdd = (props: ExamAddPropsType) => {
                 onChange={(e) => setScore(Number.parseInt(e.target.value))}
               />
               <Label for="score">
-                <FormattedMessage id="exam.score" />
+                <FormattedMessage id="tests.score" />
               </Label>
             </FormGroup>
             <FormGroup floating>
@@ -115,7 +114,7 @@ const ExamAdd = (props: ExamAddPropsType) => {
                 onChange={(e) => setNote(Number.parseInt(e.target.value))}
               />
               <Label for="note">
-                <FormattedMessage id="exam.note" />
+                <FormattedMessage id="tests.note" />
               </Label>
             </FormGroup>
             <FormGroup floating>
@@ -133,7 +132,7 @@ const ExamAdd = (props: ExamAddPropsType) => {
                 ))}
               </Input>
               <Label for="students">
-                <FormattedMessage id="exam.students" />
+                <FormattedMessage id="tests.students" />
               </Label>
             </FormGroup>
           </Form>
