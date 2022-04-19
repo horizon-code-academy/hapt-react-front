@@ -13,9 +13,8 @@ import {
   ModalFooter,
   ModalHeader,
 } from "reactstrap";
-import User from "../../../@types/User";
-import { addExam } from "../../../actions/exams/action";
-import { getUsers } from "../../../actions/users/action";
+import ExamTest from "../../../@types/Exam";
+import { addExam, getExams } from "../../../actions/exams/action";
 
 interface ExamAddPropsType {
   refresh: () => void;
@@ -23,19 +22,19 @@ interface ExamAddPropsType {
 const ExamAdd = (props: ExamAddPropsType) => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
 
-  const [studentList, setStudentList] = useState<User[] | undefined>([]);
+  const [examTestList, setExamTestList] = useState<ExamTest[] | undefined>([]);
 
-  const [exam, setExam] = useState<string>("");
-  const [score, setScore] = useState<number>(0);
-  const [note, setNote] = useState<number>(0);
-  const [students, setStudents] = useState<string[] | undefined>([]);
+  const [label, setLabel] = useState<string>("");
+  const [type, setType] = useState<string>("");
+  const [subject, setSubject] = useState<string>("");
+  const [examTest, setExamTest] = useState<string | undefined>();
 
   const submit = () => {
     const newexam = {
-      exam,
-      score,
-      note,
-      students,
+      label,
+      type,
+      subject,
+      examTest,
     };
 
     addExam(newexam, () => {
@@ -46,17 +45,15 @@ const ExamAdd = (props: ExamAddPropsType) => {
   };
 
   const reset = () => {
-    setExam("");
-    setScore(0);
-    setNote(0);
-    setStudents(undefined);
+    setLabel("");
+    setType("");
+    setSubject("");
+    setExamTest(undefined);
   };
-
   useEffect(() => {
-    getUsers((users) =>
-      setStudentList(users.filter((u) => u.roles.includes("student")))
-    );
+    getExams(setExamTestList);
   }, []);
+
   return (
     <>
       <Button
@@ -83,56 +80,56 @@ const ExamAdd = (props: ExamAddPropsType) => {
           <Form inline>
             <FormGroup floating>
               <Input
-                value={exam}
-                id="exam"
-                name="exam"
+                value={label}
+                id="label"
+                name="label"
                 type="text"
-                onChange={(e) => setExam(e.target.value)}
+                onChange={(e) => setLabel(e.target.value)}
               />
-              <Label for="exam">
-                <FormattedMessage id="tests.exam" />
+              <Label for="label">
+                <FormattedMessage id="tests.label" />
               </Label>
             </FormGroup>
             <FormGroup floating>
               <Input
-                value={score}
-                id="score"
-                name="score"
-                type="number"
-                onChange={(e) => setScore(Number.parseInt(e.target.value))}
+                value={type}
+                id="type"
+                name="type"
+                type="text"
+                onChange={(e) => setType(e.target.value)}
               />
-              <Label for="score">
-                <FormattedMessage id="tests.score" />
+              <Label for="type">
+                <FormattedMessage id="tests.type" />
               </Label>
             </FormGroup>
             <FormGroup floating>
               <Input
-                value={note}
-                id="note"
-                name="note"
-                type="number"
-                onChange={(e) => setNote(Number.parseInt(e.target.value))}
+                value={subject}
+                id="subject"
+                name="subject"
+                type="text"
+                onChange={(e) => setSubject(e.target.value)}
               />
-              <Label for="note">
-                <FormattedMessage id="tests.note" />
+              <Label for="subject">
+                <FormattedMessage id="tests.subject" />
               </Label>
             </FormGroup>
             <FormGroup floating>
               <Input
-                value={students}
-                id="students"
-                name="students"
+                value={examTest}
+                id="examTest"
+                name="examTest"
                 type="select"
-                onChange={(e) => setStudents}
+                onChange={(e) => setExamTest}
               >
-                {studentList?.map((s) => (
-                  <option key={s._id} value={s._id}>
-                    {s.firstName + ` ` + s.lastName}
+                {examTestList?.map((x) => (
+                  <option key={x._id} value={x._id}>
+                    {x.label}
                   </option>
                 ))}
               </Input>
-              <Label for="students">
-                <FormattedMessage id="tests.students" />
+              <Label for="examTest">
+                <FormattedMessage id="tests.examTest" />
               </Label>
             </FormGroup>
           </Form>

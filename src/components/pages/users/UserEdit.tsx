@@ -1,6 +1,6 @@
 import { faPen } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FormattedMessage } from "react-intl";
 import {
   Button,

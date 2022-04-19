@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { FormattedMessage } from "react-intl";
 import { Table } from "reactstrap";
-import Tests from "../../../@types/Tests";
+import Tests from "../../../@types/Exam";
 
 const Exams = () => {
   const [testss] = useState<Tests[]>([]);
@@ -16,16 +16,16 @@ const Exams = () => {
         <thead>
           <tr>
             <th>
-              <FormattedMessage id="tests.exam" />
+              <FormattedMessage id="tests.label" />
             </th>
             <th>
-              <FormattedMessage id="tests.score" />
+              <FormattedMessage id="tests.type" />
             </th>
             <th>
-              <FormattedMessage id="tests.note" />
+              <FormattedMessage id="tests.subject" />
             </th>
             <th>
-              <FormattedMessage id="tests.student" />
+              <FormattedMessage id="tests.examTests" />
             </th>
           </tr>
         </thead>
@@ -33,10 +33,10 @@ const Exams = () => {
           {testss.length ? (
             testss.map((tests, i) => (
               <tr key={i}>
-                <td scope="row">{tests.exam}</td>
-                <td>{tests.score}</td>
-                <td>{tests.note}</td>
-                <td>{tests.student}</td>
+                <td scope="row">{tests.label}</td>
+                <td>{tests.type}</td>
+                <td>{tests.subject}</td>
+                <td>{tests.examTests}</td>
               </tr>
             ))
           ) : (
