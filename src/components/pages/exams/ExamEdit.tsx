@@ -14,7 +14,6 @@ import {
   ModalHeader,
 } from "reactstrap";
 import Exam from "../../../@types/Exam";
-import ExamTest from "../../../@types/Tests";
 import { editExams, getExams } from "../../../actions/exams/action";
 
 interface ExamEditPropsType {
@@ -25,12 +24,12 @@ interface ExamEditPropsType {
 const ExamEdit = ({ exam, refresh }: ExamEditPropsType) => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
 
-  const [examTestList, setExamTestList] = useState<ExamTest[] | undefined>();
+  const [examTestList, setExamTestList] = useState<Exam[] | undefined>();
 
   const [label, setLabel] = useState<string>(exam.label);
   const [type, setType] = useState<string>(exam.type);
-  const [subject, setSubject] = useState<string | undefined>();
-  const [examTest, setExamTest] = useState<ExamTest[] | undefined>();
+  const [subject, setSubject] = useState<any>();
+  const [examTest, setExamTest] = useState<any>();
 
   const submit = () => {
     const editexam = {

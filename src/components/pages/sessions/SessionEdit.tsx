@@ -35,9 +35,9 @@ const SessionEdit = ({ session, refresh }: SessionEditPropsType) => {
   const [label, setLabel] = useState<string>(session.label);
   const [start_date, setStartDate] = useState<string>(session.start_date);
   const [end_date, setEndDate] = useState<string>(session.end_date);
-  const [teacher, setTeacher] = useState<string | undefined>();
-  const [students, setStudents] = useState<string | undefined>();
-  const [subject, setSubject] = useState<string | undefined>();
+  const [teacher, setTeacher] = useState<string | any>();
+  const [students, setStudents] = useState<string | any>();
+  const [subject, setSubject] = useState<string | any>();
 
   const submit = () => {
     const editSession = {
